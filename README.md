@@ -1,6 +1,6 @@
 # SpreeBlogs [WIP]
 
-Helps Shopify users move to Spree and bring their Blogs, Posts and keep the same URL paths.
+Helps Shopify users move to Spree and bring their existing Blogs, Posts and keep the same URL paths.
 
 ## Installation
 
