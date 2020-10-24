@@ -1,0 +1,39 @@
+<% content_for :page_title do %>
+   <%= Spree.t(:blogs) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to(Spree.t(:back_to_posts), admin_posts_path, icon: 'arrow-left.svg', class: 'btn-outline-secondary') %>
+  <%= button_link_to(Spree.t(:new_blog), new_object_url, icon: 'add.svg', class: 'btn-success') %>
+<% end %>
+
+<% if @blogs.any? %>
+  <table class="index table">
+    <thead>
+      <tr>
+        <th class="title"><%= Spree.t(:title) %></th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @blogs.each do |blog| %>
+        <tr class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id blog %>">
+          <td class=""><%= ERB.new(blog.title).result(binding).html_safe %></td>
+          <td class="actions text-right no-wrap">
+            <%= link_to_edit(blog, no_text: true) %>
+            <%= link_to_delete(blog, no_text: true) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= render 'spree/admin/shared/index_table_options', collection: @blogs, simple: true %>
+
+<% else %>
+  <div class="no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/blog')) %>,
+    <%= link_to(Spree.t(:add_one), spree.new_admin_blog_path) %>!
+  </div>
+<% end %>

@@ -1,0 +1,76 @@
+---
+en:
+  activerecord:
+    models:
+      spree/blog:
+        one: Blog
+        other: Blogs
+      spree/post:
+        one: Post
+        other: Posts
+    attributes:
+      spree/post:
+        title: Title
+        body: Body
+        summary: Summary
+        slug: Slug
+        published_at: Published at
+        visible: Visible
+        author_id: Author
+        tag_list: Tags
+      spree/user:
+        nickname: Nickname
+        website_url: Website URL
+        bio_info: Biographical info
+  spree:
+    alt_text: Image alt text
+    meta_title: Meta Title (SEO)
+    meta_description: Meta Description (SEO)
+    main_content: Main Content
+    excerpt: Excerpt
+    content: Content
+    seo: SEO
+    featured_image: Featured Image
+    author: Author
+    title: Title
+    body: Body
+    catagories: Catagories
+    summary: Summary
+    permalink: Permalink
+    published_at: Published at
+    visible: Visible
+    author_id: Author
+    tag_list: Tags
+    set_a_category: Set a category
+    category_list: Categories
+    nickname: Nickname
+    website_url: Website URL
+    google_plus_url: Google Plus URL
+    bio_info: Biographical info
+    blog_posts: "Blog Posts"
+    new_blog_post: "New Blog Post"
+    no_blog_posts: "No blog posts found."
+    blog_post_featured_image: Featured image
+    published: Published
+    posted_on: Posted on
+    posted_in: Posted in
+    tagged: Tagged
+    by: by
+    blog_read_more: Read more
+    blog_archive: Archive
+    blog_tag: Tag
+    blog_category: Category
+    blog_author: Author
+    admin:
+      tab:
+        blog_posts: Blog posts
+    blog:
+      ago: ago
+      categories: Categories
+      tags: Tag cloud
+      recent_posts: Recent posts
+      archive: Archive
+    view_in_store: View this blog post in your store front
+  time:
+    formats:
+      blog_date: "%e %b %Y"

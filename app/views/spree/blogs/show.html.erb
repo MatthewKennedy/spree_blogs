@@ -1,0 +1,10 @@
+<div class="container">
+<h1><%= @blog.title %></h1>
+
+<% @posts.each do |post| %>
+<div class="my-5">
+ <h2> <%= link_to post.title, blog_post_in_blog_path(@blog, post) %></h2>
+ <p><%= post.body %></p>
+ </div>
+<% end %>
+</div>

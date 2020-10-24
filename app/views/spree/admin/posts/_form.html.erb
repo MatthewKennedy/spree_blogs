@@ -1,0 +1,222 @@
+<div class="row">
+  <div class="col-12 col-md-8">
+
+    <div class="row">
+      <div class="col-12">
+        <h5><%= Spree.t(:main_content) %></h5>
+        <%= form.field_container :title do %>
+        <div class="form-group">
+          <%= form.label :title, Spree.t(:title) %> <span class="text-danger">*</span>
+          <br>
+          <%= form.text_field :title, class: 'form-control' %>
+          <%= form.error_message_on :title %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if Spree::Config[:blogs_use_action_text] %>
+      <div class="row">
+        <div class="col-12">
+          <%= form.field_container :body_action_text do %>
+            <div class="form-group">
+              <%= form.label :body_action_text, Spree.t(:content) %> <span class="text-danger">*</span>
+              <%= form.rich_text_area :body_action_text, {id: 'post_body' } %>
+              <%= form.error_message_on :body_action_text %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="row">
+        <div class="col-12">
+          <%= form.field_container :body do %>
+            <div class="form-group">
+              <%= form.label :body, Spree.t(:content) %> <span class="text-danger">*</span>
+              <%= form.text_area :body, { rows: 10, class: 'form-control', id: 'post_body' } %>
+              <%= form.error_message_on :body %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if Spree::Config[:blogs_use_action_text] %>
+      <div class="row">
+        <div class="col-12">
+
+          <%= form.field_container :summary_action_text do %>
+            <div class="form-group">
+              <%= form.label :summary_action_text, Spree.t(:excerpt) %>
+              <%= form.rich_text_area :summary_action_text, { id: 'post_summary' } %>
+              <%= form.error_message_on :summary_action_text %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+    <div class="row">
+      <div class="col-12">
+        <%= form.field_container :summary do %>
+          <div class="form-group">
+            <%= form.label :summary, Spree.t(:excerpt) %>
+            <%= form.text_area :summary, { rows: 4, class: 'form-control', id: 'post_summary' } %>
+            <%= form.error_message_on :summary %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-12">
+        <h5 class="card-title"><%= Spree.t(:seo) %></h5>
+        <%= form.field_container :slug do %>
+          <div class="form-group">
+            <%= form.label :slug, Spree.t(:slug) %>
+            <br>
+            <%= form.text_field :slug, class: 'form-control', id: 'slug', onfocusout: 'validateSlug()' %>
+            <%= form.error_message_on :slug %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+        <%= form.field_container :meta_title do %>
+        <div class="form-group">
+          <%= form.label :meta_title, Spree.t(:meta_title) %>
+          <br>
+          <%= form.text_field :meta_title, class: 'form-control' %>
+          <%= form.error_message_on :meta_title %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <%= form.field_container :meta_description do %>
+          <div class="form-group">
+            <%= form.label :meta_description, Spree.t(:meta_description) %>
+            <%= form.text_area :meta_description, { rows: 4, class: 'form-control', id: 'post_meta_description' } %>
+            <%= form.error_message_on :meta_description %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <div class="row">
+      <div class="col-12 ">
+          <h5><%= Spree.t(:featured_image) %></h5>
+          <% @post.build_post_image unless @post.post_image %>
+            <%= form.fields_for :post_image do |post_image_field| %>
+
+              <%= form.field_container :post_image_attachment, class: ['d-flex'] do %>
+                <% unless @post.post_image.new_record? %>
+                  <div class="post_image_thumbnail thumbnail d-flex">
+                    <div id="postImage" class="d-flex justify-content-center align-self-center">
+                      <div class="justify-content-center align-self-center">
+
+                          <%= image_tag(main_app.url_for(@post.post_image.attachment)) %>
+
+                      </div>
+                    </div>
+                    <%= @post.post_image.attachment_file_name %><br>
+                  </div>
+              <% end %>
+              <div id="<% unless @post.post_image.new_record? %>PostImageButton<% end %>">
+              <%= post_image_field.file_field :attachment %>
+              </div>
+            <% end %>
+
+            <%= form.field_container :post_image_alt do %>
+              <div class="form-group my-3">
+                <%= post_image_field.label :alt, Spree.t(:alt_text) %>
+                <%= post_image_field.text_field :alt, class: 'form-control' %>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+    <% if Spree::Config[:blogs_use_tags] %>
+      <div class="row">
+        <div class="col-12">
+          <%= form.field_container :tag_list do %>
+            <div class="form-group">
+              <%= form.label :tag_list, Spree.t(:tag_list) %>
+              <%= form.text_field :tag_list, value: @post.tag_list.join(', ') %>
+            </div>
+          <% end %>
+
+          <script>
+            $("#post_tag_list").select2({tags: <%= Spree::Post.tag_counts_on(:tags).map{|t| t.name }.to_json.html_safe %> });
+          </script>
+        </div>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-8">
+        <%= form.field_container :published_at do %>
+          <div class="form-group">
+            <%= form.label :published_at, Spree.t(:published_at) %>
+            <%= form.error_message_on :published_at %>
+            <div class="input-group datePickerFrom" data-wrap="true">
+            <% if @post.published_at? %>
+
+              <% published_at = l(@post.published_at, format: Spree.t('date_picker.format')) %>
+            <% else %>
+              <% published_at = nil %>
+            <% end %>
+            <%= form.text_field :published_at, value: published_at,
+                                placeholder: Spree.t(:select_a_date),
+                                class: 'form-control shadow-none ','data-input':'' %>
+                                <%= render partial: 'spree/admin/shared/cal_close' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-4">
+        <br>
+        <%= form.field_container :visible do %>
+          <div class="custom-control custom-checkbox">
+            <%= form.check_box :visible, class: 'custom-control-input' %>
+            <%= form.label :visible, Spree.t(:visible), class: 'custom-control-label' %>
+            <%= form.error_message_on :visible %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <%= form.field_container :blog_id, class: ['form-group'] do %>
+          <%= form.label :blog_id, Spree.t(:select_a_blog) %>
+          <%= form.collection_select(:blog_id, Spree::Blog.all, :id, :title, { include_blank: false }, { class: "select2" }) %>
+          <%= form.error_message_on :blog_id %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<script>
+  function validateSlug() {
+    var x = document.getElementById("slug");
+
+     var slugged = slugify(x.value, {
+          replacement: '-',  // replace spaces with replacement character, defaults to `-`
+          remove: undefined, // remove characters that match regex, defaults to `undefined`
+          lower: true,      // convert to lower case, defaults to `false`
+          strict: false,     // strip special characters except replacement, defaults to `false`
+        })
+
+     x.value = slugged
+  }
+</script>
