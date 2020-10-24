@@ -1,6 +1,6 @@
 # SpreeBlogs [WIP]
 
-Helps Shopify users move to Spree and bring their existing Blogs, Posts and keep the same URL paths.
+Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths across.
 
 ## Installation
 
@@ -48,4 +48,4 @@ If you'd like to contribute, please take a look at the
 [instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
 pull request.
 
-Copyright (c) 2020 [name of extension creator], released under the New BSD License
+Copyright (c) 2020 Matthew Kennedy, released under the New BSD License
