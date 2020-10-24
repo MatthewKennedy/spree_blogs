@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Spree::Admin::PostsController < Spree::Admin::ResourceController
-  helper 'spree/posts'
-
   private
 
   def location_after_save

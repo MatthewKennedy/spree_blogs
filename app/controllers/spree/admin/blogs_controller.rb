@@ -1,5 +1,4 @@
 class Spree::Admin::BlogsController < Spree::Admin::ResourceController
-  #helper 'spree/blog_posts'
 
   private
 
