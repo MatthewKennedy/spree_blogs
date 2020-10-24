@@ -1,0 +1,73 @@
+$img-border-radius: 15px;
+
+#post_author_id_field .select2-container {
+  width: 100%;
+}
+
+.post_image_thumbnail img {
+  vertical-align: middle;
+}
+
+#postImage {
+  width: 100%;
+
+  border: 2px dashed grey;
+  background: rgb(247, 247, 247);
+  border-radius: $img-border-radius;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+#post_post_image_attachment_field {
+  position: relative;
+}
+
+#post_blog_post_image_attributes_attachment {
+  max-width: 100%;
+}
+
+#post_body {
+  min-height: 10em;
+}
+
+#PostImageButton {
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  background: white;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.69);
+  padding: 10px;
+  border-radius: 0px 0px $img-border-radius $img-border-radius;
+}
+
+// Aspect Ratios
+[style*="--aspect-ratio"] > :first-child {
+  width: 100%;
+}
+
+[style*="--aspect-ratio"] > img {
+  height: auto;
+}
+
+@supports (--custom:property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }
+
+  [style*="--aspect-ratio"] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}

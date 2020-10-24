@@ -8,7 +8,7 @@
         <div class="form-group">
           <%= form.label :title, Spree.t(:title) %> <span class="text-danger">*</span>
           <br>
-          <%= form.text_field :title, class: 'form-control' %>
+          <%= form.text_field :title, class: 'form-control', required: true %>
           <%= form.error_message_on :title %>
         </div>
         <% end %>
@@ -21,7 +21,7 @@
           <%= form.field_container :body_action_text do %>
             <div class="form-group">
               <%= form.label :body_action_text, Spree.t(:content) %> <span class="text-danger">*</span>
-              <%= form.rich_text_area :body_action_text, {id: 'post_body' } %>
+              <%= form.rich_text_area :body_action_text, {id: 'post_body', required: true } %>
               <%= form.error_message_on :body_action_text %>
             </div>
           <% end %>
@@ -33,7 +33,7 @@
           <%= form.field_container :content do %>
             <div class="form-group">
               <%= form.label :content, Spree.t(:content) %> <span class="text-danger">*</span>
-              <%= form.text_area :content, { rows: 10, class: 'form-control', id: 'post_content' } %>
+              <%= form.text_area :content, { rows: 10, class: 'form-control', id: 'post_content', required: true } %>
               <%= form.error_message_on :content %>
             </div>
           <% end %>
@@ -116,7 +116,7 @@
           <% @post.build_post_image unless @post.post_image %>
             <%= form.fields_for :post_image do |post_image_field| %>
 
-              <%= form.field_container :post_image_attachment, class: ['d-flex'] do %>
+              <%= form.field_container :post_image_attachment do %>
                 <% unless @post.post_image.new_record? %>
                   <div class="post_image_thumbnail thumbnail d-flex">
                     <div id="postImage" class="d-flex justify-content-center align-self-center">

@@ -6,6 +6,7 @@ class Spree::Blog < Spree::Base
 
   before_save :create_slug
 
+  validates :title, presence: true
 
   private
 

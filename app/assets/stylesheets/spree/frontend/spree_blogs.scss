@@ -1,0 +1,152 @@
+.blog-title,
+.breadcrumb-item {
+  text-transform: capitalize;
+}
+.blog_author_info {
+  margin-bottom: 30px;
+}
+
+.blog_post_body {
+  margin: 10px 0;
+}
+
+.blog_post_summary {
+  margin: 10px 0;
+}
+
+/* tag cloud widget */
+.blog_tag_cloud {
+  margin-bottom: 10px;
+
+  li {
+    display: inline-block;
+  }
+
+  .css1 {
+    font-size: 1em;
+  }
+
+  .css2 {
+    font-size: 1.2em;
+  }
+
+  .css3 {
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+
+  .css4 {
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+}
+
+ul#blog_post {
+  list-style: none;
+
+  li { margin-bottom: 20px; }
+}
+
+/* recent blog posts widget */
+.recent_blog_posts {
+  margin-bottom: 10px;
+
+  .blog_post_date {
+    font-style: italic;
+    font-size: 75%;
+  }
+}
+
+/* news archive widget */
+#news-archive {
+  list-style: none;
+
+  a {
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 16px;
+
+    a {
+      font-weight: normal;
+    }
+  }
+
+  span { cursor: pointer; }
+}
+
+// MSK
+#blogPost {
+  #blogFeatureImg {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+#blog_post_posts {
+  .blog_post_details {
+    margin-top: 1em !important;
+    margin-bottom: 5em !important;
+  }
+}
+
+#blog_post_sidebar {
+  ul {
+    padding-left: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+
+  .blog_news_archve_wrapper {
+    span {
+      transform: rotate(0deg);
+      display: inline-block;
+    }
+
+    span.open {
+      transform: rotate(90deg);
+      display: inline-block;
+    }
+
+    ul.months {
+      padding-left: 0.5em;
+    }
+
+    ul.posts {
+      padding-left: 1em;
+    }
+  }
+}
+
+// Aspect Ratios
+[style*="--aspect-ratio"] > :first-child {
+  width: 100%;
+}
+
+[style*="--aspect-ratio"] > img {
+  height: auto;
+}
+
+@supports (--custom:property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }
+
+  [style*="--aspect-ratio"] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}

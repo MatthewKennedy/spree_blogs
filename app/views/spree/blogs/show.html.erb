@@ -1,10 +1,26 @@
 <div class="container">
-<h1><%= @blog.title %></h1>
+  <div class="row">
+    <h1>Blog: <%= @blog.title %></h1>
+  </div>
 
-<% @posts.each do |post| %>
-<div class="my-5">
- <h2> <%= link_to post.title, blog_post_in_blog_path(@blog, post) %></h2>
- <p><%= post.content %></p>
- </div>
-<% end %>
+  <% @posts.each do |post| %>
+    <div class="row my-5">
+
+      <% if post.post_image.present? %>
+        <div class="post-img col-4" style="--aspect-ratio:1/1;">
+            <%= image_tag(main_app.url_for(post.post_image.attachment),
+                          options = { class:'lazyload',
+                                      alt: post.post_image.alt,
+                                      data: { src: main_app.url_for(post.post_image.attachment),
+                                              srcset: main_app.url_for(post.post_image.attachment) }
+                                    }) %>
+        </div>
+      <% end %>
+
+        <div class="col-8">
+          <h2> <%= link_to post.title, blog_post_in_blog_path(@blog, post) %></h2>
+          <p><%= post.summary %></p>
+        </div>
+    </div>
+  <% end %>
 </div>
