@@ -19,9 +19,9 @@
           </div>
         <% end %>
           <div class="col-8">
-            <h2> <%= link_to post.title, blog_post_in_blog_path(@blog, post) %></h2>
+            <h2> <%= link_to post.title, blog_post_path(@blog, post) %></h2>
             <p><%= post.excerpt %></p>
-            <p><%= link_to 'read more ...', blog_post_in_blog_path(@blog, post) %></p>
+            <p><%= link_to 'read more ...', blog_post_path(@blog, post) %></p>
           </div>
       </div>
     <% end %>

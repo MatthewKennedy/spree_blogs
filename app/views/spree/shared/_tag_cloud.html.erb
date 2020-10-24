@@ -4,7 +4,7 @@
     <% tags = posts.tag_counts_on(:tags) %>
     <% tag_cloud(tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
       <li>
-        <%= link_to tag.name, blog_tagged_in_blog_path(@blog, tag.slug), class: css_class  %>
+        <%= link_to tag.name, blog_tag_path(@blog, tag.slug), class: css_class  %>
       </li>
     <% end %>
   </ul>

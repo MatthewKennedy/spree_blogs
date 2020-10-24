@@ -4,9 +4,8 @@ Spree::Core::Engine.add_routes do
     resources :posts
   end
 
-  resources :blogs, only: [:index, :show] do
-      get '/tagged/:tag' => 'blogs#tag', as: :tagged_in_blog
-      get '/:id' => 'posts#show', as: :post_in_blog
-      resources :posts, only: [:index, :show]
+  resources :blogs, only: [:show] do
+    get '/tagged/:tag' => 'blogs#tag', as: :tag
+    get '/:id' => 'posts#show', as: :post
   end
 end
