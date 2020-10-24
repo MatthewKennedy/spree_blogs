@@ -1,22 +1,18 @@
 # frozen_string_literal: true
 
 class Spree::BlogsController < Spree::StoreController
-
   before_action :init_pagination, only: %i[show]
 
   def show
-    @blog = if try_spree_current_user.try(:has_spree_role?, 'admin')
-                              Spree::Blog.friendly.find(params[:id])
-                            else
-                              Spree::Blog.friendly.find(params[:id])
-                            end
-    @posts = @blog.posts
+    @blog = Spree::Blog.friendly.find(params[:id])
 
-    if @blog.meta_title.present?
-      @title = @blog.meta_title
-    else
-      @title = @blog.title
-    end
+    @posts = @blog.posts.visible.page(@pagination_page).per(@pagination_per_page)
+
+    @title = if @blog.meta_title.present?
+               @blog.meta_title
+             else
+               @blog.title
+             end
   end
 
   def tag
@@ -24,7 +20,9 @@ class Spree::BlogsController < Spree::StoreController
 
     @tag = ActsAsTaggableOn::Tag.friendly.find(params[:tag])
 
-    @posts = @blog.posts.by_tag(@tag)
+    @posts = @blog.posts.visible.by_tag(@tag).page(@pagination_page).per(@pagination_per_page)
+
+    @title = "#{@blog.title} | #{@tag.to_s.titlecase}"
   end
 
   private

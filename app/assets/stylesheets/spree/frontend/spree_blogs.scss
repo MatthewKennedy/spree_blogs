@@ -1,21 +1,6 @@
-.blog-title,
-.breadcrumb-item {
-  text-transform: capitalize;
-}
-.blog_author_info {
-  margin-bottom: 30px;
-}
-
-.blog_post_body {
-  margin: 10px 0;
-}
-
-.blog_post_summary {
-  margin: 10px 0;
-}
-
 /* tag cloud widget */
 .tag_cloud {
+  padding: 0;
   margin-bottom: 10px;
 
   li {
@@ -41,17 +26,11 @@
   }
 }
 
-ul#blog_post {
-  list-style: none;
-
-  li { margin-bottom: 20px; }
-}
-
 /* recent blog posts widget */
-.recent_blog_posts {
+.recent_posts {
   margin-bottom: 10px;
 
-  .blog_post_date {
+  .post_date {
     font-style: italic;
     font-size: 75%;
   }
@@ -75,52 +54,6 @@ ul#blog_post {
   }
 
   span { cursor: pointer; }
-}
-
-// MSK
-#blogPost {
-  #blogFeatureImg {
-    img {
-      max-width: 100%;
-    }
-  }
-}
-
-#blog_post_posts {
-  .blog_post_details {
-    margin-top: 1em !important;
-    margin-bottom: 5em !important;
-  }
-}
-
-#blog_post_sidebar {
-  ul {
-    padding-left: 0;
-
-    li {
-      list-style: none;
-    }
-  }
-
-  .blog_news_archve_wrapper {
-    span {
-      transform: rotate(0deg);
-      display: inline-block;
-    }
-
-    span.open {
-      transform: rotate(90deg);
-      display: inline-block;
-    }
-
-    ul.months {
-      padding-left: 0.5em;
-    }
-
-    ul.posts {
-      padding-left: 1em;
-    }
-  }
 }
 
 // Aspect Ratios

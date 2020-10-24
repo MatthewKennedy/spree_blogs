@@ -2,10 +2,8 @@ class Spree::Blog < Spree::Base
   extend FriendlyId
   friendly_id :slug, use: [:slugged, :finders]
 
-  has_many :posts, dependent: :destroy
-
+  has_many :posts
   before_save :create_slug
-
   validates :title, presence: true
 
   private
