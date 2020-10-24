@@ -19,6 +19,14 @@ class Spree::BlogsController < Spree::StoreController
     end
   end
 
+  def tag
+    @blog = Spree::Blog.friendly.find(params[:blog_id])
+
+    @tag = ActsAsTaggableOn::Tag.friendly.find(params[:tag])
+
+    @posts = @blog.posts.by_tag(@tag)
+  end
+
   private
 
   def init_pagination

@@ -6,7 +6,7 @@ class CreateSpreePosts < ActiveRecord::Migration[6.0]
       t.column :meta_title, :string
       t.column :meta_description, :text
       t.column :slug, :string, unique: true
-      t.column :summary, :text
+      t.column :excerpt, :text
       t.column :published_at, :datetime
       t.column :visible, :boolean, default: false
 

@@ -1,6 +1,5 @@
 <div class="container">
-  <p><%= link_to @blog.title, blog_path(@blog) %> / <%= @post.title %></p>
-
+  <%= render partial: 'spree/shared/blogs_breadcrumbs', locals: { blog: @blog, tag: nil, post: @post } %>
   <% if @post.post_image.present? %>
     <div class="post-img" style="--aspect-ratio:1/1;">
         <%= image_tag(main_app.url_for(@post.post_image.attachment),

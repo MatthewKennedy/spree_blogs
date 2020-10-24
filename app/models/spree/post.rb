@@ -1,6 +1,4 @@
-if Spree::Config[:blogs_use_tags]
-  require 'acts-as-taggable-on'
-end
+require 'acts-as-taggable-on'
 
 class Spree::Post < Spree::Base
   belongs_to :blog
@@ -8,18 +6,15 @@ class Spree::Post < Spree::Base
   extend FriendlyId
   friendly_id :slug, use: [:slugged, :finders]
 
-  if Spree::Config[:blogs_use_tags]
-    ActsAsTaggableOn.force_lowercase = true
-    acts_as_taggable_on :tags
-  end
+  acts_as_taggable_on :tags
 
   before_save :create_slug, :set_published_at
 
   validates :title, presence: true
 
   if Spree::Config[:blogs_use_action_text]
-    has_rich_text :summary_action_text
     has_rich_text :content_action_text
+    has_rich_text :excerpt_action_text
     validates :content_action_text, presence: true
   else
     validates :content, presence: true
@@ -63,10 +58,6 @@ class Spree::Post < Spree::Base
     tagged_with(tag_name, on: :tags)
   end
 
-  def self.by_category(category_name)
-    tagged_with(category_name, on: :categories)
-  end
-
   def self.by_author(author)
     where(author_id: author)
   end
@@ -95,7 +86,11 @@ class Spree::Post < Spree::Base
   private
 
   def create_slug
-    self.slug = title.to_url if slug.blank?
+    self.slug = if slug.blank?
+                  title.to_url
+                else
+                  slug.to_url
+                end
   end
 
   def set_published_at
