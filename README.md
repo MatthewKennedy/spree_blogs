@@ -7,6 +7,7 @@ Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL 
 1. Add this extension to your Gemfile with this line:
 
     ```ruby
+    gem 'acts-as-taggable-on', '~> 6.0'
     gem 'spree_blogs', github: 'matthewkennedy/spree_blogs'
     ```
 
@@ -19,6 +20,7 @@ Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL 
 3. Copy & run migrations
 
     ```ruby
+    bundle exec rails acts_as_taggable_on_engine:install:migrations
     bundle exec rails g spree_blogs:install
     ```
 
