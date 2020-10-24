@@ -1,0 +1,19 @@
+<% @posts.each do |post| %>
+  <div class="row my-5">
+    <% if post.post_image.present? %>
+      <div class="post-img col-4" style="--aspect-ratio:1/1;">
+        <%= image_tag(main_app.url_for(post.post_image.attachment),
+                      options = { class:'lazyload',
+                                  alt: post.post_image.alt,
+                                  data: { src: main_app.url_for(post.post_image.attachment),
+                                          srcset: main_app.url_for(post.post_image.attachment) }
+                                }) %>
+      </div>
+    <% end %>
+      <div class="col-8">
+        <h2> <%= link_to post.title, blog_post_path(@blog, post) %></h2>
+        <p><%= post.excerpt %></p>
+        <p><%= link_to 'read more ...', blog_post_path(@blog, post) %></p>
+      </div>
+  </div>
+<% end %>

@@ -19,7 +19,7 @@
     <tbody>
       <% @blogs.each do |blog| %>
         <tr class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id blog %>">
-          <td class=""><%= ERB.new(blog.title).result(binding).html_safe %></td>
+          <td class=""><%= blog.title %></td>
           <td class="actions text-right no-wrap">
             <%= link_to_edit(blog, no_text: true) %>
             <%= link_to_delete(blog, no_text: true) %>

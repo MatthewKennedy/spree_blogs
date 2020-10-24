@@ -29,6 +29,6 @@ class Spree::BlogsController < Spree::StoreController
 
   def init_pagination
     @pagination_page = params[:page].present? ? params[:page].to_i : 1
-    @pagination_per_page = params[:per_page].present? ? params[:per_page].to_i : 8
+    @pagination_per_page = params[:per_page].present? ? params[:per_page].to_i : 2
   end
 end
