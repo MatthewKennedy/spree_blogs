@@ -4,7 +4,7 @@ class CreateSpreeBlogs < ActiveRecord::Migration[6.0]
       t.column :title, :string
       t.column :meta_title, :string
       t.column :meta_description, :text
-      t.column :slug, :string
+      t.column :slug, :string, unique: true
 
       t.timestamps
     end

@@ -19,10 +19,10 @@ class Spree::Post < Spree::Base
 
   if Spree::Config[:blogs_use_action_text]
     has_rich_text :summary_action_text
-    has_rich_text :body_action_text
-    validates :body_action_text, presence: true
+    has_rich_text :content_action_text
+    validates :content_action_text, presence: true
   else
-    validates :body, presence: true
+    validates :content, presence: true
   end
 
   default_scope { order('published_at DESC') }

@@ -30,11 +30,11 @@
     <% else %>
       <div class="row">
         <div class="col-12">
-          <%= form.field_container :body do %>
+          <%= form.field_container :content do %>
             <div class="form-group">
-              <%= form.label :body, Spree.t(:content) %> <span class="text-danger">*</span>
-              <%= form.text_area :body, { rows: 10, class: 'form-control', id: 'post_body' } %>
-              <%= form.error_message_on :body %>
+              <%= form.label :content, Spree.t(:content) %> <span class="text-danger">*</span>
+              <%= form.text_area :content, { rows: 10, class: 'form-control', id: 'post_content' } %>
+              <%= form.error_message_on :content %>
             </div>
           <% end %>
         </div>
