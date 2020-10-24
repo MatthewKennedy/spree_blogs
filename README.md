@@ -1,13 +1,13 @@
-# SpreeBlogs
+# SpreeBlogs [WIP]
 
-Introduction goes here.
+Helps Shopify users move to Spree and bring their Blogs, Posts and keep the same URL paths.
 
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
 
     ```ruby
-    gem 'spree_blogs', github: '[your-github-handle]/spree_blogs'
+    gem 'spree_blogs', github: 'matthewkennedy/spree_blogs'
     ```
 
 2. Install the gem using Bundler
