@@ -2,7 +2,7 @@
 
 module Spree::UserDecorator
   def self.prepended(base)
-    base.has_many :posts, foreign_key: :author_id
+    base.has_many :posts
   end
 end
 
