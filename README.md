@@ -48,6 +48,7 @@ require 'spree_blogs/factories'
 
 ## ToDo
 
+- Add Author to posts
 - Add recent posts
 - Add page caching
 - Write tests
