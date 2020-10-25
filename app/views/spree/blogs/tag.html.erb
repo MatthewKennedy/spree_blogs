@@ -8,4 +8,9 @@
   <div class="col-8">
     <%= render 'posts' %>
   </div>
+
+  <div class="col-4">
+    <%= render partial: 'spree/shared/tag_cloud', locals: { posts: @posts.except(:limit, :offset) } %>
+    <%= render 'spree/shared/recent_posts', recent_blog_posts: @posts.except(:limit, :offset).recent(10) %>
+  </div>
 </div>

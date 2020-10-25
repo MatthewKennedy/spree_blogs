@@ -30,7 +30,7 @@
           </td>
           <td class="actions text-right no-wrap">
             <% if post.blog.present? %>
-              <%= button_link_to('', blog_post_path(post.blog.slug, post),
+              <%= button_link_to('', blog_post_path(post.blog, post),
                                     icon: 'view.svg',
                                     class: 'btn-sm btn-outline-secondary',
                                     target: '_blank') %>

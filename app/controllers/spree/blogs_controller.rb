@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Spree::BlogsController < Spree::StoreController
-  before_action :init_pagination, only: %i[show]
+  before_action :init_pagination, only: %i[show tag]
 
   def show
     @blog = Spree::Blog.friendly.find(params[:id])
@@ -20,7 +20,7 @@ class Spree::BlogsController < Spree::StoreController
 
     @tag = ActsAsTaggableOn::Tag.friendly.find(params[:tag])
 
-    fresh_when @posts = @blog.posts.visible.by_tag(@tag).page(@pagination_page).per(@pagination_per_page)
+    @posts = @blog.posts.visible.by_tag(@tag).page(@pagination_page).per(@pagination_per_page)
 
     @title = "#{@blog.title} | #{@tag.to_s.titlecase}"
   end
