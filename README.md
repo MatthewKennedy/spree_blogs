@@ -51,6 +51,7 @@ require 'spree_blogs/factories'
 - Add recent posts
 - Add page caching
 - Write tests
+- Have a good tidy up.
 
 ## Contributing
 
