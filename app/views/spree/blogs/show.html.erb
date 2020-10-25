@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render partial: 'spree/shared/blogs_breadcrumbs', locals: { blog: nil, tag: nil, post: nil } %>
+  <%= render partial: 'spree/shared/blogs_breadcrumbs', locals: { blog: @blog, tag: nil, post: nil } %>
   <div class="row">
     <h1>Blog: <%= @blog.title %></h1>
   </div>

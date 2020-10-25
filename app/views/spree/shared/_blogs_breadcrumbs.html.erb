@@ -1,23 +1,37 @@
 <nav id="breadcrumbs" class="col-12 mt-1 mt-sm-3 mt-lg-4" aria-label="breadcrumbs">
-  <ol class="breadcrumb">
+  <ol class="breadcrumb blog-breadcrumb">
     <li class="breadcrumb-item">
       <span>
         <%= link_to Spree.t(:home), spree.root_path %>
       </span>
     </li>
-    <% if blog.present? %>
+    <% if blog.present? && tag.present? %>
       <li class="breadcrumb-item">
         <%= link_to blog.title, blog_path(blog) %>
+      </li>
+    <% elsif blog.present? && post.present? %>
+      <li class="breadcrumb-item">
+        <%= link_to blog.title, blog_path(blog) %>
+      </li>
+    <% else blog.present? %>
+      <li class="breadcrumb-item">
+        <span class="text-muted">
+          <%= blog.title %>
+        </span>
       </li>
     <% end %>
     <% if tag.present? %>
       <li class="breadcrumb-item">
-        <%= tag %>
+        <span class="text-muted">
+          <%= tag %>
+        </span>
       </li>
     <% end %>
     <% if post.present? %>
       <li class="breadcrumb-item">
-        <%= post.title %>
+        <span class="text-muted">
+          <%= post.title %>
+        </span>
       </li>
     <% end %>
   </ol>

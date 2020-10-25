@@ -48,10 +48,10 @@ require 'spree_blogs/factories'
 
 ## ToDo
 
-- Add Author to posts
-- Add recent posts
+- Add ability for admin to view yet unpublished pages
 - Add page caching
 - Write tests
+- Move some logic from views to helpers.
 - Have a good tidy up.
 
 ## Contributing
