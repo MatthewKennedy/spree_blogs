@@ -202,6 +202,19 @@
         <% end %>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-12">
+        <%= form.field_container :author_id do %>
+          <%= form.label :author_id, Spree.t(:author_id) %>
+          <br>
+          <%= form.select :author_id,
+                          Spree.user_class.joins(:spree_roles).where("#{Spree::Role.table_name}.name" => "blogger").collect {|user| [user.email, user.id]},
+                          {include_blank: true}, class: 'select2' %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
 <hr>
