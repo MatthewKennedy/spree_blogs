@@ -1,0 +1,17 @@
+<% if recent_blog_posts.present? %>
+  <div class="recent_blog_posts_wrapper">
+    <h6><%= Spree.t('blog.recent_posts') %></h6>
+    <div class="recent_blog_posts blog_sidebar_list row">
+      <% recent_blog_posts.each do |blog_post| %>
+        <div class="col-8 mb-1 truncate">
+          <%= link_to(blog_post_path(blog_post.blog, blog_post)) do %>
+            <%= blog_post.title %>
+          <% end %>
+        </div>
+        <div class="col-4 text-right">
+          <span class="blog_post_date"><%= "#{time_ago_in_words blog_post.published_at} #{Spree.t('blog.ago')}" %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
