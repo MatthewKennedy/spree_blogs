@@ -196,7 +196,7 @@
     <div class="row">
       <div class="col-12">
         <%= form.field_container :blog_id, class: ['form-group'] do %>
-          <%= form.label :blog_id, Spree.t(:select_a_blog) %>
+          <%= form.label :blog_id, Spree.t(:blog) %>
           <%= form.collection_select(:blog_id, Spree::Blog.all, :id, :title, { include_blank: false }, { class: "select2" }) %>
           <%= form.error_message_on :blog_id %>
         <% end %>

@@ -22,11 +22,11 @@
       <h1><%= @post.title %></h1>
 
       <p class="small">
-        <span class="text-muted">On:</span>
+        <span class="text-muted"><%= Spree.t('posted_on') %></span>
         <%= localize(@post.published_at, format: :blog_date) %>
-        <span class="text-muted">| In:</span>
+        <span class="text-muted">| <%= Spree.t('posted_in') %></span>
         <%= @post.blog.title %>
-        <span class="text-muted">| By:</span>
+        <span class="text-muted">| <%= Spree.t('posted_by') %></span>
         <%= @post.author.nickname %>
       </p>
 

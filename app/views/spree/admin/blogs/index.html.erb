@@ -38,6 +38,6 @@
 <% else %>
   <div class="no-objects-found">
     <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/blog')) %>,
-    <%= link_to(Spree.t(:add_one), spree.new_admin_blog_path) %>!
+    <%= link_to Spree.t(:add_one), spree.new_admin_blog_path %>
   </div>
 <% end %>

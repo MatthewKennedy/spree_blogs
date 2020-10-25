@@ -1,5 +1,5 @@
 <div class="tag_cloud_wrapper">
-  <h6><%= Spree.t('post.tags') %></h6>
+  <h6><%= Spree.t('tag_list') %></h6>
   <ul class="tag_cloud">
     <% tags = posts.tag_counts_on(:tags) %>
     <% tag_cloud(tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>

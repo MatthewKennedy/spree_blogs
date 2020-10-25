@@ -1,6 +1,25 @@
 ---
 en:
   activerecord:
+    attributes:
+      spree/blog:
+        meta_title: Meta Title
+        meta_description: Meta Description
+        title: Title
+        slug: Slug
+      spree/post:
+        author_id: Author
+        body: Body
+        content: Content
+        excerpt: Excerpt
+        published_at: Published at
+        meta_title: Meta Title
+        meta_description: Meta Description
+        slug: Slug
+        title: Title
+        visible: Visible
+      spree/user:
+        nickname: Nickname
     models:
       spree/blog:
         one: Blog
@@ -8,69 +27,48 @@ en:
       spree/post:
         one: Post
         other: Posts
-    attributes:
-      spree/post:
-        title: Title
-        body: Body
-        summary: Summary
-        slug: Slug
-        published_at: Published at
-        visible: Visible
-        author_id: Author
-        tag_list: Tags
-      spree/user:
-        nickname: Nickname
-        website_url: Website URL
-        bio_info: Biographical info
   spree:
-    alt_text: Image alt text
-    meta_title: Meta Title (SEO)
-    meta_description: Meta Description (SEO)
-    main_content: Main Content
-    excerpt: Excerpt
-    content: Content
-    seo: SEO
-    featured_image: Featured Image
-    author: Author
-    title: Title
-    body: Body
-    catagories: Catagories
-    summary: Summary
-    permalink: Permalink
-    published_at: Published at
-    visible: Visible
-    author_id: Author
-    tag_list: Tags
-    set_a_category: Set a category
-    category_list: Categories
-    nickname: Nickname
-    website_url: Website URL
-    google_plus_url: Google Plus URL
-    bio_info: Biographical info
-    blog_posts: "Blog Posts"
-    new_blog_post: "New Blog Post"
-    no_blog_posts: "No blog posts found."
-    blog_post_featured_image: Featured image
-    published: Published
-    posted_on: Posted on
-    posted_in: Posted in
-    tagged: Tagged
-    by: by
-    blog_read_more: Read more
-    blog_archive: Archive
-    blog_tag: Tag
-    blog_category: Category
-    blog_author: Author
     admin:
       tab:
         blog_posts: Blog posts
-    blog:
-      ago: ago
-      categories: Categories
-      tags: Tag cloud
-      recent_posts: Recent posts
-      archive: Archive
-    view_in_store: View this blog post in your store front
+    ago: ago
+    alt_text: Image Alt Text
+    author_id: Author
+    back_to_blogs_list: Back To Blogs List
+    back_to_posts: Back To Posts
+    back_to_posts_list: Back To Posts List
+    blog: Blog
+    blogs: Blogs
+    blog_posts: Blog Posts
+    content: Content
+    excerpt: Excerpt
+    editing: Editing
+    featured_image: Featured Image
+    main_content: Main Content
+    manage_blogs: Manage Blogs
+    meta_description: Meta Description (SEO)
+    meta_title: Meta Title (SEO)
+    new_blog: New Blog
+    new_post: New Post
+    nickname: Nickname
+    no_blog_posts: No blog posts found.
+    post: Post
+    posts: Posts
+    posted_by: Posted by
+    posted_in: Posted in
+    posted_on: Posted on
+    published: Published
+    published_at: Published at
+    read_more: Read More
+    recent_posts: Recent Posts
+    select_a_blog: Select A Blog
+    seo: SEO
+    slug: Slug
+    tag: Tag
+    tag_list: Tags
+    tagged: Tagged
+    title: Title
+    visible: Visible
   time:
     formats:
       blog_date: "%e %b %Y"
