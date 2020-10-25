@@ -1,4 +1,4 @@
-# SpreeBlogs [WIP]
+# Spree Blogs (Shopify Style Blogs For Spree 4.2)
 
 Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths with them.
 
@@ -45,6 +45,12 @@ Simply add this require statement to your spec_helper:
 ```ruby
 require 'spree_blogs/factories'
 ```
+
+## ToDo
+
+- Add recent posts
+- Add page caching
+- Write tests
 
 ## Contributing
 
