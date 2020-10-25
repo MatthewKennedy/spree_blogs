@@ -6,9 +6,7 @@ module SpreeBlogs
 
     initializer 'spree_blogs.preferences', before: 'spree.environment' do
       Spree::AppConfiguration.class_eval do
-        preference :blogs_alias, :string, default: 'blogs'
         preference :blogs_use_action_text, :boolean, default: false
-        preference :blogs_use_tags, :boolean, default: false
       end
     end
 

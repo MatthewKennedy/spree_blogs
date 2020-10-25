@@ -21,6 +21,10 @@
         <tr class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id blog %>">
           <td class=""><%= blog.title %></td>
           <td class="actions text-right no-wrap">
+            <%= button_link_to('', blog_path(blog),
+                                  icon: 'view.svg',
+                                  class: 'btn-sm btn-outline-secondary',
+                                  target: '_blank') %>
             <%= link_to_edit(blog, no_text: true) %>
             <%= link_to_delete(blog, no_text: true) %>
           </td>

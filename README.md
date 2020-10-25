@@ -1,6 +1,8 @@
 # SpreeBlogs [WIP]
 
-Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths across.
+Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths with them.
+
+This Spree Extension is designed for Spree 4.2 upwards and requires the acts-as-taggable-on gem to provide the same tagging support as you get in Shopify blogs.
 
 ## Installation
 

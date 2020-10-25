@@ -11,7 +11,6 @@
   <table class="index table">
     <thead>
       <tr>
-        <th class="date"><%= Spree.t(:published_at) %></th>
         <th class="title"><%= Spree.t(:title) %></th>
         <th class=""><%= Spree.t(:status) %></th>
         <th class="actions"></th>
@@ -20,9 +19,8 @@
 
     <tbody>
       <% @posts.each do |post| %>
-        <tr class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id post %>">
-          <td class=""><%= l( post.published_at, format: :blog_date) if post.published_at %></td>
-          <td class=""><%= ERB.new(post.title).result(binding).html_safe %></td>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td class=""><%= post.title %>
           <td class="">
             <% if post.visible %>
               <%= Spree.t(:published) %>
@@ -31,9 +29,10 @@
             <% end %>
           </td>
           <td class="actions text-right no-wrap">
-            <%# if post.visible %>
-              <%#= link_to_post_in_store(post, no_text: true, target: '_blank') %>
-            <%# end %>
+            <%= button_link_to('', blog_post_path(post.blog.slug, post),
+                                  icon: 'view.svg',
+                                  class: 'btn-sm btn-outline-secondary',
+                                  target: '_blank') %>
             <%= link_to_edit(post, no_text: true) %>
             <%= link_to_delete(post, no_text: true) %>
           </td>
