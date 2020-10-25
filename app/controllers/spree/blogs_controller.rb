@@ -20,7 +20,7 @@ class Spree::BlogsController < Spree::StoreController
 
     @tag = ActsAsTaggableOn::Tag.friendly.find(params[:tag])
 
-    @posts = @blog.posts.visible.by_tag(@tag).page(@pagination_page).per(@pagination_per_page)
+    fresh_when @posts = @blog.posts.visible.by_tag(@tag).page(@pagination_page).per(@pagination_per_page)
 
     @title = "#{@blog.title} | #{@tag.to_s.titlecase}"
   end
@@ -29,6 +29,6 @@ class Spree::BlogsController < Spree::StoreController
 
   def init_pagination
     @pagination_page = params[:page].present? ? params[:page].to_i : 1
-    @pagination_per_page = params[:per_page].present? ? params[:per_page].to_i : 2
+    @pagination_per_page = params[:per_page].present? ? params[:per_page].to_i : 8
   end
 end
