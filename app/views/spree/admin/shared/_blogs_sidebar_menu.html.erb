@@ -2,6 +2,6 @@
 
 <% if Spree.user_class && can?(:admin, Spree::Post) %>
   <ul class='nav nav-sidebar border-bottom'>
-    <%= tab Spree.t(:'admin.tab.blog_posts'), url: spree.admin_posts_path, icon: "edit#{ICON_SVG}" %>
+    <%= tab Spree.t(:'admin.tab.blog_posts'), url: spree.admin_posts_path, icon: 'edit.svg' %>
   </ul>
 <% end %>
