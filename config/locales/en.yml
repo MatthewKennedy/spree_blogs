@@ -34,17 +34,17 @@ en:
     ago: ago
     alt_text: Image Alt Text
     author_id: Author
-    back_to_blogs_list: Back To Blogs List
+    back_to_blogs_list: Back To Blogs
     back_to_posts: Back To Posts
-    back_to_posts_list: Back To Posts List
+    back_to_posts_list: Back To Posts
     blog: Blog
     blogs: Blogs
+    blog_details: Blog Details
     blog_posts: Blog Posts
     content: Content
     excerpt: Excerpt
     editing: Editing
     featured_image: Featured Image
-    main_content: Main Content
     manage_blogs: Manage Blogs
     meta_description: Meta Description (SEO)
     meta_title: Meta Title (SEO)
@@ -54,6 +54,7 @@ en:
     no_blog_posts: No blog posts found.
     post: Post
     posts: Posts
+    post_details: Post Details
     posted_by: Posted by
     posted_in: Posted in
     posted_on: Posted on

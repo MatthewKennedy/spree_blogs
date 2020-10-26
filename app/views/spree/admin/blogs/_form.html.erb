@@ -1,13 +1,12 @@
 <div class="row">
-  <div class="col-12 col-md-8">
+  <div class="col-12">
 
     <div class="row">
       <div class="col-12">
-        <h5><%= Spree.t(:main_content) %></h5>
+        <h5><%= Spree.t(:blog_details) %></h5>
         <%= form.field_container :title do %>
         <div class="form-group">
           <%= form.label :title, Spree.t(:title) %> <span class="text-danger">*</span>
-          <br>
           <%= form.text_field :title, class: 'form-control', required: true %>
           <%= form.error_message_on :title %>
         </div>
@@ -21,7 +20,6 @@
         <%= form.field_container :meta_title do %>
         <div class="form-group">
           <%= form.label :meta_title, Spree.t(:meta_title) %>
-          <br>
           <%= form.text_field :meta_title, class: 'form-control' %>
           <%= form.error_message_on :meta_title %>
         </div>
@@ -34,7 +32,6 @@
         <%= form.field_container :slug do %>
         <div class="form-group">
           <%= form.label :slug, Spree.t(:slug) %>
-          <br>
           <%= form.text_field :slug, class: 'form-control', id: 'slug', onfocusout: 'validateSlug()' %>
           <%= form.error_message_on :slug %>
         </div>
