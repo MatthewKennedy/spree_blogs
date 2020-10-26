@@ -1,25 +1,25 @@
-# Spree Blogs (Shopify Style Blogs For Spree 4.2)
+# Spree Blogs | Shopify Style Blogs For Spree
 
 Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths with them.
 
-This Spree Extension is designed for Spree 4.2 upwards and requires the acts-as-taggable-on gem to provide the same tagging support as you get in Shopify blogs.
+This Spree Extension requires the acts-as-taggable-on gem to provide the same tagging (catagories) support as you find in Shopify blogs.
 
 ## Installation
 
-1. Add this extension to your Gemfile with this line:
+1. Add the following lines to your Gemfile:
 
     ```ruby
     gem 'acts-as-taggable-on', '~> 6.0'
     gem 'spree_blogs', github: 'matthewkennedy/spree_blogs'
     ```
 
-2. Install the gem using Bundler
+2. Install the gems using Bundler
 
     ```ruby
     bundle install
     ```
 
-3. Copy & run migrations
+3. Copy & run migrations: (only run the acts_as_taggable_on install command if you are not already using acts-as-taggable-on in your project).
 
     ```ruby
     bundle exec rails acts_as_taggable_on_engine:install:migrations
