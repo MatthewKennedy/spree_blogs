@@ -6,6 +6,8 @@ class Spree::PostsController < Spree::StoreController
 
     fresh_when @post = @blog.posts.find(params[:id])
 
+    @title = 'mk'
+
     respond_to do |format|
       format.html
       format.rss { render layout: false }
