@@ -6,7 +6,7 @@ class Spree::PostsController < Spree::StoreController
 
     fresh_when @post = @blog.posts.find(params[:id])
 
-    @title = 'mk'
+    @title = @post.post_seo_title
 
     respond_to do |format|
       format.html

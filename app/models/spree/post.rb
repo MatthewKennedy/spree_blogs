@@ -57,6 +57,14 @@ class Spree::Post < Spree::Base
     end
   end
 
+  def post_seo_title
+    if meta_title.present?
+      meta_title
+    else
+      title
+    end
+  end
+
   def self.by_tag(tag_name)
     tagged_with(tag_name, on: :tags)
   end
