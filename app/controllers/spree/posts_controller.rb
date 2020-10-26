@@ -3,7 +3,7 @@
 class Spree::PostsController < Spree::StoreController
   def show
     @blog = Spree::Blog.friendly.find(params[:blog_id])
-    
+
     fresh_when @post = @blog.posts.find(params[:id])
 
     respond_to do |format|

@@ -7,4 +7,4 @@ module Spree::UserDecorator
 end
 
 ::Spree.user_class.prepend(::Spree::UserDecorator)
-::Spree::PermittedAttributes.user_attributes.push :nickname, :website_url, :bio_info
+::Spree::PermittedAttributes.user_attributes.push :nickname
