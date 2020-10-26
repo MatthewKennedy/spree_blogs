@@ -3,8 +3,8 @@
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to(Spree.t(:back_to_posts), admin_posts_path, icon: 'arrow-left.svg', class: 'btn-outline-secondary') %>
-  <%= button_link_to(Spree.t(:new_blog), new_object_url, icon: 'add.svg', class: 'btn-success') %>
+  <%= button_link_to(Spree.t(:back_to_posts), admin_posts_path, icon: "arrow-left#{ICON_SVG}", class: 'btn-outline-secondary') %>
+  <%= button_link_to(Spree.t(:new_blog), new_object_url, icon: "add#{ICON_SVG}", class: 'btn-success') %>
 <% end %>
 
 <% if @blogs.any? %>
@@ -22,7 +22,7 @@
           <td class=""><%= blog.title %></td>
           <td class="actions text-right no-wrap">
             <%= button_link_to('', blog_path(blog),
-                                  icon: 'view.svg',
+                                  icon: "eye-open#{ICON_SVG}",
                                   class: 'btn-sm btn-outline-secondary',
                                   target: '_blank') %>
             <%= link_to_edit(blog, no_text: true) %>

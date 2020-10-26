@@ -4,7 +4,7 @@
 
 <% content_for :page_actions do %>
   <%= button_link_to(Spree.t(:manage_blogs), admin_blogs_path, class: 'btn-outline-secondary') %>
-  <%= button_link_to(Spree.t(:new_post), new_object_url, icon: 'add.svg', class: 'btn-success') %>
+  <%= button_link_to(Spree.t(:new_post), new_object_url, icon: "add#{ICON_SVG}", class: 'btn-success') %>
 <% end %>
 
 <% if @posts.any? %>
@@ -31,7 +31,7 @@
           <td class="actions text-right no-wrap">
             <% if post.blog.present? %>
               <%= button_link_to('', blog_post_path(post.blog, post),
-                                    icon: 'view.svg',
+                                    icon: "eye-open#{ICON_SVG}",
                                     class: 'btn-sm btn-outline-secondary',
                                     target: '_blank') %>
             <% end %>
