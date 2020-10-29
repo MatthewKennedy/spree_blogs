@@ -30,7 +30,14 @@ This Spree Extension requires the acts-as-taggable-on gem to provide the same ta
 
   If your server was running, restart it so that it can find the assets properly.
 
+
 5. Set up Authors by visiting Configurations/Roles and add a new roll named `blogger`, then assign the blogger role to any user you wish to appear in the author list when creating your blog posts.
+
+
+6. Set up your first Blog, click Blog Posts from the main menu, and then click Manage Blogs, creat your first blog.
+
+
+7. Crest your blog posts as needed.
 
 ## Testing
 
