@@ -7,6 +7,7 @@ module SpreeBlogs
     initializer 'spree_blogs.preferences', before: 'spree.environment' do
       Spree::AppConfiguration.class_eval do
         preference :blogs_use_action_text, :boolean, default: false
+        preference :blogs_custom_page_icon, :string, default: "edit.svg"
       end
     end
 

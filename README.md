@@ -10,7 +10,7 @@ This Spree Extension requires the acts-as-taggable-on gem to provide the same ta
 
     ```ruby
     gem 'acts-as-taggable-on', '~> 6.0'
-    gem 'spree_blogs', github: 'matthewkennedy/spree_blogs'
+    gem 'spree_blogs', github: 'matthewkennedy/spree_blogs', branch: 'main'
     ```
 
 2. Install the gems using Bundler
