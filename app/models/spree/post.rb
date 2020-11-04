@@ -41,6 +41,16 @@ class Spree::Post < Spree::Base
     end
   end
 
+  def author_display_name
+    if author&.nickname.present?
+      author.nickname
+    elsif author.present?
+      author.email
+    else
+      false
+    end
+  end
+
   def correct_excerpt
     if Spree::Config[:blogs_use_action_text]
       action_text_excerpt

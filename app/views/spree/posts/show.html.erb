@@ -26,8 +26,10 @@
         <%= localize(@post.published_at, format: :blog_date) %>
         <span class="text-muted">| <%= Spree.t('posted_in') %></span>
         <%= @post.blog.title %>
-        <span class="text-muted">| <%= Spree.t('posted_by') %></span>
-        <%= @post.author.nickname %>
+        <% if @post.author_display_name %>
+          <span class="text-muted">| <%= Spree.t('posted_by') %></span>
+          <%= @post.author_display_name %>
+        <% end %>
       </p>
 
       <p><%= @post.post_content %></p>
