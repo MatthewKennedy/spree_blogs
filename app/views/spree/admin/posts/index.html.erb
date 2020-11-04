@@ -12,7 +12,7 @@
     <thead>
       <tr>
         <th class="title"><%= Spree.t(:title) %></th>
-        <th class=""><%= Spree.t(:status) %></th>
+        <th><%= Spree.t(:status) %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -20,8 +20,8 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr class="<%= cycle('odd', 'even') %>">
-          <td class=""><%= post.title %>
-          <td class="">
+          <td><%= post.title %>
+          <td>
             <% if post.visible %>
               <%= Spree.t(:published) %>
             <% else %>

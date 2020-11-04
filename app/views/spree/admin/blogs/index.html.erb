@@ -19,7 +19,7 @@
     <tbody>
       <% @blogs.each do |blog| %>
         <tr class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id blog %>">
-          <td class=""><%= blog.title %></td>
+          <td><%= blog.title %></td>
           <td class="actions text-right no-wrap">
             <%= button_link_to('', blog_path(blog),
                                   icon: 'eye-open.svg',
