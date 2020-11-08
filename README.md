@@ -36,20 +36,34 @@ This Spree Extension requires the **acts-as-taggable-on** gem to provide the sam
 
   If your server was running, restart it so that it can find the assets properly.
 
+## Configuration
 
-5. Set up Authors
+To use Action Text TRIX rich text editor install and set up Action Text via the Rails guides, and then set the following config to true:
+
+```ruby
+# in initilizers/spree.rb
+config.blogs_use_action_text = true
+```
+
+To use a custom svg icon set the following config and add your custom svg icon to **assets/images** and name it **backend-blog.svg**
+```ruby
+# in initilizers/spree.rb
+config.blogs_custom_icon = "blog.svg"
+```
+
+## Usage
+
+1. Set up Authors
 
 Visit **Configurations/Roles** and add a new roll named `blogger`, then assign the new role to any user you wish to appear in the authors list.
 
+2. Create A Blog
 
-6. Set up A Blog
+Click **Blog Posts** from the main menu, and then click **Manage Blogs** in the contextual menu, once you are in the Manage Blogs area click **New Blog** to create your first blog and assign it to one or more of your stores.
 
-Click **Blog Posts** from the main menu, and then click **Manage Blogs**, to creat your first blog.
+3. Create A Post
 
-
-7. Create A Blog Posts
-
-Navigate to Blog Posts and create your posts as needed.
+Navigate to Blog Posts area and click the New **Post butto** to create your first blog post, assign your post to your new Blog and your done.
 
 ## Testing
 
