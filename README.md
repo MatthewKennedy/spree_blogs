@@ -2,7 +2,13 @@
 
 Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths with them.
 
-This Spree Extension requires the acts-as-taggable-on gem to provide the same tagging (catagories) support as you find in Shopify blogs.
+## Features
+- Multiple blogs like Shopify
+- Multi-Store support
+- Draft Mode editing
+- Action Text - TRIX rich text editor ready.
+
+This Spree Extension requires the acts-as-taggable-on gem to provide the same tagging (categories) support as you find in Shopify blogs. If you are already using acts-as-taggable-on in your Rails application, you can skip the acts-as-taggable-on install.
 
 ## Installation
 
@@ -33,7 +39,7 @@ This Spree Extension requires the acts-as-taggable-on gem to provide the same ta
 
 5. Set up Authors
 
-Visit **Configurations/Roles** and add a new roll named `blogger`, then assign the new role to any user you wish to appear in the authors list when creating your blog posts.
+Visit **Configurations/Roles** and add a new roll named `blogger`, then assign the new role to any user you wish to appear in the authors list.
 
 
 6. Set up A Blog
