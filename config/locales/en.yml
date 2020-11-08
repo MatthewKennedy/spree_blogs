@@ -70,6 +70,8 @@ en:
     tagged: Tagged
     title: Title
     visible: Visible
+    view_blog_in_store: View Blog In Store
+    view_post_in_store: View Post In Store
   time:
     formats:
       blog_date: "%e %b %Y"

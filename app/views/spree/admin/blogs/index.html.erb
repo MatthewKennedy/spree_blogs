@@ -34,11 +34,11 @@
                 </button>
                 <div class="dropdown-menu mt-2 p-0 mr-2 dropdown-menu-right" aria-labelledby="dropdownMenuButton-<%= blog.slug %>">
                   <div class="dropdown-item px-0 py-2 text-center bg-light">
-                    <%= Spree.t('spree_blogs.view_in_store') %>
+                    <%= Spree.t('view_blog_in_store') %>
                   </div>
                   <div class="dropdown-divider m-0"></div>
                   <% blog.stores.each do |store| %>
-                    <%= view_in_store_link(blog, store) %>
+                    <%= view_blog_in_store_link(blog, store) %>
                   <% end %>
                 </div>
               </div>
