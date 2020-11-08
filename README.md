@@ -45,7 +45,8 @@ To use Action Text TRIX rich text editor install and set up Action Text via the 
 config.blogs_use_action_text = true
 ```
 
-To use a custom svg icon set the following config and add your custom svg icon to **assets/images** and name it **backend-blog.svg**
+To use a custom admin svg icon set the following config, and then add your custom svg icon to **assets/images**, make sure to name it **backend-blog.svg**
+
 ```ruby
 # in initilizers/spree.rb
 config.blogs_custom_icon = "blog.svg"
@@ -55,7 +56,7 @@ config.blogs_custom_icon = "blog.svg"
 
 1. Set up Authors
 
-Visit **Configurations/Roles** and add a new roll named `blogger`, then assign the new role to any user you wish to appear in the authors list.
+Visit **Configurations/Roles** and add a new roll named `blogger`, then assign the new role to any user you wish to appear in the author list.
 
 2. Create A Blog
 
@@ -83,11 +84,11 @@ require 'spree_blogs/factories'
 
 ## ToDo
 
-- Add ability for admin to view yet unpublished pages
 - Add page caching
 - Write tests
-- Move some logic from views to helpers.
-- Have a good tidy up.
+- Set lazyloading images to be more efficient
+- Have a good tidy up
+- Write tests
 
 ## Contributing
 
