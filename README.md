@@ -2,6 +2,7 @@
 
 Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths with them.
 
+
 ## Features
 - Multiple blogs like Shopify
 - Multi-Store support
@@ -9,6 +10,7 @@ Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL 
 - Action Text - TRIX rich text editor ready.
 
 This Spree Extension requires the **acts-as-taggable-on** gem to provide the same tagging (categories) support as you find in Shopify blogs. If you are already using acts-as-taggable-on in your Rails application, you can skip the acts-as-taggable-on install.
+
 
 ## Installation
 
@@ -36,6 +38,7 @@ This Spree Extension requires the **acts-as-taggable-on** gem to provide the sam
 
   If your server was running, restart it so that it can find the assets properly.
 
+
 ## Configuration
 
 To use Action Text TRIX rich text editor install and set up Action Text via the Rails guides, and then set the following config to true:
@@ -52,19 +55,23 @@ To use a custom admin svg icon set the following config, and then add your custo
 config.blogs_custom_icon = "blog.svg"
 ```
 
+
 ## Usage
 
 1. Set up Author's
 
-Visit **Configurations/Roles** and add a new roll named `blogger`, then assign the new role to any user you wish to appear in the author list.
+Visit **Configurations/Roles** and add a new Role named `blogger`, then assign the new role to any user you wish to appear in the author list.
+
 
 2. Create A Blog
 
 Click **Blog Posts** from the main menu, and then click **Manage Blogs** in the contextual menu, once you are in the Manage Blogs area click **New Blog** to create your first blog and assign it to one or more of your stores.
 
+
 3. Create A Post
 
 Navigate to Blog Posts area and click the New **Post butto** to create your first blog post, assign your post to your new Blog and your done.
+
 
 ## Testing
 
@@ -82,6 +89,7 @@ Simply add this require statement to your spec_helper:
 require 'spree_blogs/factories'
 ```
 
+
 ## ToDo
 
 - Add page caching
@@ -89,6 +97,7 @@ require 'spree_blogs/factories'
 - Set lazyloading images to be more efficient
 - Have a good tidy up
 - Write more tests
+
 
 ## Contributing
 
