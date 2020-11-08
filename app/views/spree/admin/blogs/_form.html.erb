@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-8">
 
     <div class="row">
       <div class="col-12">
@@ -46,6 +46,21 @@
             <%= form.label :meta_description, Spree.t(:meta_description) %>
             <%= form.text_area :meta_description, { rows: 6, class: 'form-control'} %>
             <%= form.error_message_on :meta_description %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-4">
+
+    <div class="row">
+      <div class="col-12">
+       <h5>Stores</h5>
+        <%= collection_check_boxes(:blog, :store_ids, Spree::Store.all, :id, :unique_name) do |form| %>
+          <div class="custom-control custom-checkbox">
+            <%= form.check_box(class: "custom-control-input") %>
+            <%= form.label(class: "custom-control-label") %>
           </div>
         <% end %>
       </div>

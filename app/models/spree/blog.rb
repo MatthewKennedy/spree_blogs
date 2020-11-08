@@ -3,8 +3,12 @@ class Spree::Blog < Spree::Base
   friendly_id :slug, use: [:slugged, :finders]
 
   has_many :posts
+  has_and_belongs_to_many :stores
+
   before_save :create_slug
   validates :title, presence: true
+
+  scope :by_store, ->(store) { joins(:stores).where("store_id = ?", store) }
 
   private
 
