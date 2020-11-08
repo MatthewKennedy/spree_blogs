@@ -54,7 +54,7 @@ config.blogs_custom_icon = "blog.svg"
 
 ## Usage
 
-1. Set up Authors
+1. Set up Author's
 
 Visit **Configurations/Roles** and add a new roll named `blogger`, then assign the new role to any user you wish to appear in the author list.
 
@@ -88,7 +88,7 @@ require 'spree_blogs/factories'
 - Write tests
 - Set lazyloading images to be more efficient
 - Have a good tidy up
-- Write tests
+- Write more tests
 
 ## Contributing
 
