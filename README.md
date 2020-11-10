@@ -9,15 +9,12 @@ Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL 
 - Draft Mode editing
 - Action Text - TRIX rich text editor ready.
 
-This Spree Extension requires the **acts-as-taggable-on** gem to provide the same tagging (categories) support as you find in Shopify blogs. If you are already using acts-as-taggable-on in your Rails application, you can skip the acts-as-taggable-on install.
-
 
 ## Installation
 
 1. Add the following lines to your Gemfile:
 
     ```ruby
-    gem 'acts-as-taggable-on', '~> 6.0'
     gem 'spree_blogs', github: 'matthewkennedy/spree_blogs', branch: 'main'
     ```
 
@@ -27,10 +24,9 @@ This Spree Extension requires the **acts-as-taggable-on** gem to provide the sam
     bundle install
     ```
 
-3. Copy & run migrations: (only run the acts_as_taggable_on install command if you are not already using acts-as-taggable-on in your project).
+3. Copy & run migration.
 
     ```ruby
-    bundle exec rails acts_as_taggable_on_engine:install:migrations
     bundle exec rails g spree_blogs:install
     ```
 
