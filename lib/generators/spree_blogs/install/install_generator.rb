@@ -6,10 +6,6 @@ module SpreeBlogs
       def add_migrations
         run 'bundle exec rails acts_as_taggable_on_engine:install:migrations'
         run 'bundle exec rails railties:install:migrations FROM=spree_blogs'
-
-        if ActiveRecord::Base.connection.adapter_name == 'MySQL'
-         run 'bundle exec rails acts_as_taggable_on_engine:tag_names:collate_bin'
-        end
       end
 
       def add_javascripts
