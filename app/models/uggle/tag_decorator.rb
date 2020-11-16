@@ -1,4 +1,4 @@
-module ActsAsTaggableOn
+module Uggle
   module TagDecorator
     def self.prepended(base)
       base.extend FriendlyId
@@ -7,4 +7,4 @@ module ActsAsTaggableOn
   end
 end
 
-ActsAsTaggableOn::Tag.prepend ActsAsTaggableOn::TagDecorator
+Uggle::Tag.prepend Uggle::TagDecorator

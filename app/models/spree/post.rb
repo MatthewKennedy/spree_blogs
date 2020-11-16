@@ -1,4 +1,4 @@
-require 'acts-as-taggable-on'
+require 'uggle'
 
 class Spree::Post < Spree::Base
   belongs_to :blog
@@ -6,7 +6,7 @@ class Spree::Post < Spree::Base
   extend FriendlyId
   friendly_id :slug, use: [:slugged, :finders]
 
-  acts_as_taggable_on :tags
+  uggle :tags
 
   before_save :create_slug, :set_published_at
 

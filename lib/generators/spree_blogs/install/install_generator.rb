@@ -4,6 +4,7 @@ module SpreeBlogs
       class_option :auto_run_migrations, type: :boolean, default: false
 
       def add_migrations
+        run 'bundle exec rails uggle_engine:install:migrations'
         run 'bundle exec rails railties:install:migrations FROM=spree_blogs'
       end
 
