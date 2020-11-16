@@ -18,7 +18,7 @@ class Spree::BlogsController < Spree::StoreController
   def tag
     @blog = Spree::Blog.friendly.find(params[:blog_id])
 
-    @tag = Uggle::Tag.friendly.find(params[:tag])
+    @tag = MakeTaggable::Tag.friendly.find(params[:tag])
 
     fresh_when @posts = @blog.posts.visible.by_tag(@tag).page(@pagination_page).per(@pagination_per_page)
 
