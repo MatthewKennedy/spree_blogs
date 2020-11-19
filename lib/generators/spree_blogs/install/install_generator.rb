@@ -3,6 +3,20 @@ module SpreeBlogs
     class InstallGenerator < Rails::Generators::Base
       class_option :auto_run_migrations, type: :boolean, default: false
 
+      # Required to perform add_files and copy the svg icon
+      def self.source_paths
+        paths = superclass.source_paths
+
+        paths << File.expand_path("../templates", __FILE__)
+        paths.flatten
+      end
+
+      def add_files
+        if Spree::Core::Engine.backend_available? || Rails.env.test?
+          template "assets/images/backend-blogs.svg", "app/assets/images/backend-blogs.svg"
+        end
+      end
+
       def add_migrations
         run "bundle exec rails make_taggable_engine:install:migrations"
         run "bundle exec rails railties:install:migrations FROM=spree_blogs"

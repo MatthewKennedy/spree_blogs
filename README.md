@@ -1,4 +1,6 @@
 # Spree Blogs | Shopify Style Blogs For Spree
+[![Build Status](https://travis-ci.com/MatthewKennedy/spree_blogs.svg?branch=main)](https://travis-ci.com/MatthewKennedy/spree_blogs)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
 Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths with them.
 
@@ -43,14 +45,6 @@ To use Action Text TRIX rich text editor install and set up Action Text via the 
 # in initilizers/spree.rb
 config.blogs_use_action_text = true
 ```
-
-To use a custom admin svg icon set the following config, and then add your custom svg icon to **assets/images**, make sure to name it **backend-blog.svg**
-
-```ruby
-# in initilizers/spree.rb
-config.blogs_custom_icon = "blog.svg"
-```
-
 
 ## Usage
 
