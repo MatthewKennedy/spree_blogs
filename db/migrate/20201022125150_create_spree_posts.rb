@@ -11,7 +11,7 @@ class CreateSpreePosts < ActiveRecord::Migration[6.0]
       t.column :published_at, :datetime
       t.column :visible, :boolean, default: false
       t.belongs_to :blog
-      t.index :author_id, name: 'index_spree_posts_on_author_id'
+      t.index :author_id, name: "index_spree_posts_on_author_id"
 
       t.timestamps
     end

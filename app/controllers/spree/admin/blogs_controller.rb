@@ -1,5 +1,4 @@
 class Spree::Admin::BlogsController < Spree::Admin::ResourceController
-
   private
 
   def location_after_save

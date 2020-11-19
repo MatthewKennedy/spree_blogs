@@ -1,4 +1,4 @@
-require 'make_taggable'
+require "make_taggable"
 
 class Spree::Post < Spree::Base
   belongs_to :blog
@@ -20,7 +20,7 @@ class Spree::Post < Spree::Base
     validates :content, presence: true
   end
 
-  default_scope { order('published_at DESC') }
+  default_scope { order("published_at DESC") }
   scope :visible, -> { where visible: true }
   scope :recent, ->(max = 5) { visible.limit(max) }
 
@@ -30,7 +30,7 @@ class Spree::Post < Spree::Base
     belongs_to :author, optional: true
   end
 
-  has_one :post_image, as: :viewable, dependent: :destroy, class_name: 'Spree::PostImage'
+  has_one :post_image, as: :viewable, dependent: :destroy, class_name: "Spree::PostImage"
   accepts_nested_attributes_for :post_image, reject_if: :all_blank
 
   def post_content
@@ -83,10 +83,10 @@ class Spree::Post < Spree::Base
 
   def create_slug
     self.slug = if slug.blank?
-                  title.to_url
-                else
-                  slug.to_url
-                end
+      title.to_url
+    else
+      slug.to_url
+    end
   end
 
   def set_published_at

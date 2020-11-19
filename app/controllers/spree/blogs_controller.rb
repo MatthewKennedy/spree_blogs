@@ -9,10 +9,10 @@ class Spree::BlogsController < Spree::StoreController
     @posts = @blog.posts.visible.page(@pagination_page).per(@pagination_per_page)
 
     @title = if @blog.meta_title.present?
-               @blog.meta_title
-             else
-               @blog.title
-             end
+      @blog.meta_title
+    else
+      @blog.title
+    end
   end
 
   def tag

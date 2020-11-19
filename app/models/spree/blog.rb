@@ -18,9 +18,9 @@ class Spree::Blog < Spree::Base
 
   def create_slug
     self.slug = if slug.blank?
-                  title.to_url
-                else
-                  slug.to_url
-                end
+      title.to_url
+    else
+      slug.to_url
+    end
   end
 end
