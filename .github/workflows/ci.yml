@@ -21,12 +21,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler-cache: false
+          bundler-cache: true
 
       - name: Run StandardRB
-        run: |
-          gem install standard
-          bundle exec standardrb --format progress
+        run: bundle exec standardrb --format progress
 
 
   # SQLITE
