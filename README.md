@@ -1,5 +1,5 @@
 # Spree Blogs | Shopify Style Blogs For Spree
-![CI](https://github.com/MatthewKennedy/spree_blogs/workflows/CI/badge.svg)
+![CI](https://github.com/MatthewKennedy/spree_blogs/workflows/CI/badge.svg) ![Standard Rb](https://github.com/MatthewKennedy/spree_blogs/workflows/Standard%20Rb/badge.svg)
 
 Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths with them.
 
