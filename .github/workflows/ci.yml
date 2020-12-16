@@ -24,7 +24,9 @@ jobs:
           bundler-cache: false
 
       - name: Run StandardRB
-        run: bundle exec standardrb --format progress
+        run: |
+          gem install standard
+          bundle exec standardrb --format progress
 
 
   # SQLITE
