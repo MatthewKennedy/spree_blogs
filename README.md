@@ -10,7 +10,7 @@ Move your existing Shopify blogs over to Spree bringing all your blog posts and 
 - Manage multiple blogs (like Shopify)
 - Multi-store support
 - Draft editing mode
-- Compatable with Rais Action Text and the TRIX rich text editor
+- Compatable with Rails Action Text and the TRIX rich text editor
 
 
 ## Installation
