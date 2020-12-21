@@ -1,14 +1,16 @@
-# Spree Blogs | Shopify Style Blogs For Spree
-![CI](https://github.com/MatthewKennedy/spree_blogs/workflows/CI/badge.svg) ![Standard Rb](https://github.com/MatthewKennedy/spree_blogs/workflows/Standard%20Rb/badge.svg)
+# spree_blogs
 
-Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL paths with them.
+![CI](https://github.com/MatthewKennedy/spree_blogs/workflows/CI/badge.svg)
+![Standard Rb](https://github.com/MatthewKennedy/spree_blogs/workflows/Standard%20Rb/badge.svg)
+
+Move your existing Shopify blogs over to Spree bringing all your blog posts and URL's with you.
 
 
 ## Features
-- Multiple blogs like Shopify
-- Multi-Store support
-- Draft Mode editing
-- Action Text - TRIX rich text editor ready.
+- Manage multiple blogs (like Shopify)
+- Multi-store support
+- Draft editing mode
+- Compatable with Rais Action Text and the TRIX rich text editor
 
 
 ## Installation
@@ -38,7 +40,7 @@ Helps Shopify users move to Spree, bringing their existing Blogs, Posts and URL 
 
 ## Configuration
 
-To use Action Text TRIX rich text editor install and set up Action Text via the Rails guides, and then set the following config to true:
+To use Action Text - TRIX rich text editor install and set up Action Text via the Rails guides, and then set the following config to true:
 
 ```ruby
 # in initilizers/spree.rb
