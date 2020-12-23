@@ -4,10 +4,8 @@ module SpreeBlogs
     isolate_namespace Spree
     engine_name "spree_blogs"
 
-    initializer "spree_blogs.preferences", before: "spree.environment" do
-      Spree::AppConfiguration.class_eval do
-        preference :blogs_use_action_text, :boolean, default: false
-      end
+    initializer "spree_blogs.environment", before: :load_config_initializers do |_app|
+      SpreeBlogs::Config = SpreeBlogs::Configuration.new
     end
 
     # use rspec for tests

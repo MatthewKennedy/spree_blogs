@@ -44,7 +44,7 @@ To use Action Text - TRIX rich text editor install and set up Action Text via th
 
 ```ruby
 # in initilizers/spree.rb
-config.blogs_use_action_text = true
+SpreeBlogs::Config.use_action_text = true
 ```
 
 ## Usage

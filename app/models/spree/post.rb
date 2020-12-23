@@ -12,7 +12,7 @@ class Spree::Post < Spree::Base
 
   validates :title, presence: true
 
-  if Spree::Config[:blogs_use_action_text]
+  if SpreeBlogs::Config[:use_action_text]
     has_rich_text :action_text_content
     has_rich_text :action_text_excerpt
     validates :action_text_content, presence: true
@@ -34,7 +34,7 @@ class Spree::Post < Spree::Base
   accepts_nested_attributes_for :post_image, reject_if: :all_blank
 
   def post_content
-    if Spree::Config[:blogs_use_action_text]
+    if SpreeBlogs::Config[:use_action_text]
       action_text_content
     else
       content
@@ -52,7 +52,7 @@ class Spree::Post < Spree::Base
   end
 
   def correct_excerpt
-    if Spree::Config[:blogs_use_action_text]
+    if SpreeBlogs::Config[:use_action_text]
       action_text_excerpt
     else
       excerpt

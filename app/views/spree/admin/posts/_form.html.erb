@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <% if Spree::Config[:blogs_use_action_text] %>
+    <% if SpreeBlogs::Config[:use_action_text] %>
       <div class="row">
         <div class="col-12">
           <%= form.field_container :action_text_content do %>
@@ -40,7 +40,7 @@
       </div>
     <% end %>
 
-    <% if Spree::Config[:blogs_use_action_text] %>
+    <% if SpreeBlogs::Config[:use_action_text] %>
       <div class="row">
         <div class="col-12">
 
