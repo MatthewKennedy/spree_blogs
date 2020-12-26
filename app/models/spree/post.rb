@@ -10,11 +10,7 @@ class Spree::Post < Spree::Base
 
   before_save :create_slug, :set_published_at
 
-  if SpreeBlogs::Config[:use_raw_post_content]
-    validates :excerpt, presence: true
-  end
-
-  validates :title, presence: true
+  validates :title, :excerpt, presence: true
 
   if SpreeBlogs::Config[:use_action_text]
     has_rich_text :action_text_content
