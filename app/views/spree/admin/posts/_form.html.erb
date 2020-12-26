@@ -40,32 +40,17 @@
       </div>
     <% end %>
 
-    <% if SpreeBlogs::Config[:use_action_text] %>
-      <div class="row">
-        <div class="col-12">
-
-          <%= form.field_container :action_text_excerpt do %>
-            <div class="form-group">
-              <%= form.label :action_text_excerpt, Spree.t(:excerpt) %>
-              <%= form.rich_text_area :action_text_excerpt, { id: 'post_summary' } %>
-              <%= form.error_message_on :action_text_excerpt %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% else %>
     <div class="row">
       <div class="col-12">
         <%= form.field_container :excerpt do %>
           <div class="form-group">
-            <%= form.label :excerpt, Spree.t(:excerpt) %>
-            <%= form.text_area :excerpt, { rows: 4, class: 'form-control', id: 'post_summary' } %>
+            <%= form.label :excerpt, Spree.t(:excerpt) %> <span class="text-danger">*</span>
+            <%= form.text_area :excerpt, { rows: 4, class: 'form-control', id: 'post_summary', required: true } %>
             <%= form.error_message_on :excerpt %>
           </div>
         <% end %>
       </div>
     </div>
-    <% end %>
 
     <div class="row">
       <div class="col-12">

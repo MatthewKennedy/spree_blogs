@@ -10,6 +10,10 @@ class Spree::Post < Spree::Base
 
   before_save :create_slug, :set_published_at
 
+  if SpreeBlogs::Config[:use_raw_post_content]
+    validates :excerpt, presence: true
+  end
+
   validates :title, presence: true
 
   if SpreeBlogs::Config[:use_action_text]
@@ -50,22 +54,6 @@ class Spree::Post < Spree::Base
       author.email
     else
       false
-    end
-  end
-
-  def correct_excerpt
-    if SpreeBlogs::Config[:use_action_text]
-      action_text_excerpt
-    else
-      excerpt
-    end
-  end
-
-  def post_excerpt(chars = 200)
-    if correct_excerpt.blank?
-      "#{post_content[0...chars]}..."
-    else
-      correct_excerpt
     end
   end
 
