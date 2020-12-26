@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-12">
       <% if @post.post_image.present? %>
-        <div class="post-img" style="--aspect-ratio:1/1;">
+        <div class="post-img" style="--aspect-ratio:<%= SpreeBlogs::Config.image_ratio %>;">
             <%= image_tag(main_app.url_for(@post.post_image.attachment),
                           options = { class:'lazyload',
                                       alt: @post.post_image.alt,
@@ -32,8 +32,11 @@
         <% end %>
       </p>
 
-      <p><%= @post.post_content %></p>
-
+      <% if SpreeBlogs::Config.use_raw_post_content && !SpreeBlogs::Config.use_action_text %>
+        <%= raw @post.post_content %>
+      <% else %>
+        <%= @post.post_content %>
+      <% end %>
     </div>
   </div>
 </div>

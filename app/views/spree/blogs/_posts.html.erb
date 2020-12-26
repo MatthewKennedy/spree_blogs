@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
   <div class="row my-5">
     <% if post.post_image.present? %>
-      <div class="post-img col-4" style="--aspect-ratio:1/1;">
+      <div class="post-img col-4" style="--aspect-ratio:<%= SpreeBlogs::Config.image_ratio %>;">
         <%= image_tag(main_app.url_for(post.post_image.attachment),
                       options = { class:'lazyload',
                                   alt: post.post_image.alt,
@@ -10,9 +10,10 @@
                                 }) %>
       </div>
     <% end %>
+
       <div class="col-8">
         <h2> <%= link_to post.title, blog_post_path(@blog, post) %></h2>
-        <p><%= post.post_excerpt %></p>
+        <%= sanitize post.post_excerpt %>
         <p><%= link_to Spree.t('read_more'), blog_post_path(@blog, post) %></p>
       </div>
   </div>
