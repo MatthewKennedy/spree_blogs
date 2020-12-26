@@ -6,7 +6,7 @@ class Spree::BlogsController < Spree::StoreController
   def show
     @blog = Spree::Blog.by_store(current_store).friendly.find(params[:id])
 
-    @posts = @blog.posts.visible.published.page(@pagination_page).per(@pagination_per_page)
+    @posts = @blog.posts.published_and_visible.page(@pagination_page).per(@pagination_per_page)
 
     @title = if @blog.meta_title.present?
       @blog.meta_title

@@ -23,7 +23,7 @@ class Spree::Post < Spree::Base
   default_scope { order("published_at DESC") }
 
   scope :visible, -> { where visible: true }
-  scope :published, -> { where "published_at <= ?", Date.today }
+  scope :published_and_visible, -> { visible.where "published_at <= ?", Date.today }
   scope :recent, ->(max = 5) { visible.limit(max) }
 
   if Spree.user_class
