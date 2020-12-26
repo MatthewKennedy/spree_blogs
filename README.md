@@ -49,7 +49,7 @@ To use Action Text - TRIX rich text editor install and set up Action Text via th
 
 If you are not using Action Text, and wish to use raw HTML in your Blog Post content, you can set the following config:
 
-It is worth noting that is you are using raw HTML post content, and no excerpt, the excerpt will be sanitized, and while you will not see HTML appearing in your post excerpt, the exact formatting might not be as expected. In this scenario, it is best to enter a plane text excerpt for every post.
+It is worth noting that is you are using raw HTML post content, and no excerpt, the excerpt will be sanitized, and while you will not see HTML appearing in your post excerpt, the exact formatting might not be as expected. In this scenario, it is best to enter a plain text excerpt for every post.
 
 
 ```ruby
