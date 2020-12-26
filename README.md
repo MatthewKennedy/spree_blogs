@@ -45,8 +45,8 @@ Move your existing Shopify blogs over to Spree bringing all your blog posts and 
 To use the Rails built in TRIX Rich Text Editor install and set up Action Text via the Rails guides, and then set the following config to true:
 
 ```ruby
-    # In initilizers/spree.rb
-    SpreeBlogs::Config.use_action_text = true
+# In initilizers/spree.rb
+SpreeBlogs::Config.use_action_text = true
 ```
 
 ### Raw HTML Post Content
@@ -57,9 +57,9 @@ It is worth noting that if you are using raw HTML post content, and no excerpt, 
 
 
 ```ruby
-    # In initilizers/spree.rb
-    SpreeBlogs::Config.use_action_text = false
-    SpreeBlogs::Config.use_raw_post_content = true
+# In initilizers/spree.rb
+SpreeBlogs::Config.use_action_text = false
+SpreeBlogs::Config.use_raw_post_content = true
 ```
 
 ### Lazy Loading Image Ratio
@@ -67,8 +67,8 @@ It is worth noting that if you are using raw HTML post content, and no excerpt, 
 Spree Blogs takes advantage of the lazy loading images javascript in Spree 4.1 and higher. If you wish to change the image ratio from the default square (1/1), you can do so by setting the config below:
 
 ```ruby
-    # In initilizers/spree.rb
-    SpreeBlogs::Config.image_ratio = "16/9" # The default is "1/1" (square).
+# In initilizers/spree.rb
+SpreeBlogs::Config.image_ratio = "16/9" # The default is "1/1" (square).
 ```
 
 
