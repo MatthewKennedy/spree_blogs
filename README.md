@@ -53,9 +53,6 @@ SpreeBlogs::Config.use_action_text = true
 
 If you are not using Action Text, and wish to use raw HTML in your Blog Post content, you can set the following config:
 
-It is worth noting that if you are using raw HTML post content, and no excerpt, the excerpt will be sanitized, while you will not see HTML appearing in your post excerpt, the exact formatting might not be as expected. In this scenario, it is best to enter a plain text excerpt for every post.
-
-
 ```ruby
 # In initilizers/spree.rb
 SpreeBlogs::Config.use_action_text = false
