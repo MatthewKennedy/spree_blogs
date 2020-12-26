@@ -115,7 +115,7 @@
 
               <%= form.field_container :post_image_attachment do %>
                 <% unless @post.post_image.new_record? %>
-                  <div class="post_image_thumbnail thumbnail d-flex">
+                  <div class="post_image_thumbnail thumbnail d-flex" style="--aspect-ratio:<%= SpreeBlogs::Config.image_ratio %>;">
                     <div id="postImage" class="d-flex justify-content-center align-self-center">
                       <div class="justify-content-center align-self-center">
                         <%= image_tag(main_app.url_for(@post.post_image.attachment)) %>

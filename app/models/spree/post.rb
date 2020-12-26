@@ -21,7 +21,9 @@ class Spree::Post < Spree::Base
   end
 
   default_scope { order("published_at DESC") }
+
   scope :visible, -> { where visible: true }
+  scope :published, -> { where "published_at <= ?", Date.today }
   scope :recent, ->(max = 5) { visible.limit(max) }
 
   if Spree.user_class
