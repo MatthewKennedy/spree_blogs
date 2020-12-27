@@ -27,9 +27,10 @@
                  <%= post.blog.title %>
               </span>
             <% else %>
-              <%= Spree.t(:draft) %>
+              <span class="badge badge-pending">
+                <%= Spree.t(:draft) %>
+              </span>
             <% end %>
-
           </td>
           <td class="actions text-right no-wrap">
             <% if post.blog.present? && !post.blog.stores.empty? %>

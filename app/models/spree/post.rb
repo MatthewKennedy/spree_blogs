@@ -14,7 +14,6 @@ class Spree::Post < Spree::Base
 
   if SpreeBlogs::Config[:use_action_text]
     has_rich_text :action_text_content
-    has_rich_text :action_text_excerpt
     validates :action_text_content, presence: true
   else
     validates :content, presence: true
