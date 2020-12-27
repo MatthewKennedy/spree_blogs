@@ -25,7 +25,7 @@
 
         <div class="row">
           <div class="col">
-            <h2 class="mb-0"><%= link_to post.title, blog_post_path(@blog, post) %></h2>
+            <h3 class="mb-0"><%= link_to post.title, blog_post_path(@blog, post), class: " text-body" %></h3>
             <span class="small"><%= localize(post.published_at, format: :blog_date) %></span>
             <p><%= post.excerpt %></p>
             <p><%= link_to Spree.t('read_more'), blog_post_path(@blog, post) %></p>
