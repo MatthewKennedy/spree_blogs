@@ -11,6 +11,7 @@
   <div class="row">
     <% @posts.each do |post| %>
       <div class="col-12 col-md-6 col-lg my-3">
+        
         <% if post.post_image.present? %>
           <div class="post-img" style="--aspect-ratio:<%= SpreeBlogs::Config.image_ratio %>;">
             <%= image_tag(main_app.url_for(post.post_image.attachment),
@@ -24,8 +25,9 @@
 
         <div class="row">
           <div class="col">
-            <h2><%= link_to post.title, blog_post_path(@blog, post) %></h2>
-            <%= post.excerpt %>
+            <h2 class="mb-0"><%= link_to post.title, blog_post_path(@blog, post) %></h2>
+            <span class="small"><%= localize(post.published_at, format: :blog_date) %></span>
+            <p><%= post.excerpt %></p>
             <p><%= link_to Spree.t('read_more'), blog_post_path(@blog, post) %></p>
           </div>
         </div>
