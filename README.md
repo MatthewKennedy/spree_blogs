@@ -86,11 +86,13 @@ Click **Blog Posts** from the main menu, and then click **Manage Blogs** in the 
 Navigate to Blog Posts area and click the New **Post butto** to create your first blog post, assign your post to your new Blog and your done.
 
 
-Add A blog to your homepage by adding the following partial and setting the desired blogs title and number of posts you wish to display:
+### Add Blogs To Your Homepage
+
+Display blogs on your homepage by adding the following partial and setting the desired blog title and number of posts you wish to display in the locals:
 
 ```ruby
 # views/spree/home/index.html.erb
-<%= render partial: 'spree/shared/drop_in_blog', locals: { blog: "news", post_count: 4 } %>
+<%= render partial: "spree/shared/drop_in_blog", locals: { blog: "news", post_count: 4 } %>
 ```
 ## Testing
 
@@ -105,7 +107,7 @@ When testing your applications integration with this extension you may use it's 
 Simply add this require statement to your spec_helper:
 
 ```ruby
-require 'spree_blogs/factories'
+require "spree_blogs/factories"
 ```
 
 
