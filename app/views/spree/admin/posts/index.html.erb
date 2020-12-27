@@ -8,11 +8,13 @@
 <% end %>
 
 <% if @posts.any? %>
+<div class="table-responsive">
   <table class="index table">
     <thead>
       <tr>
         <th class="title"><%= Spree.t(:title) %></th>
         <th><%= Spree.t(:published_status) %></th>
+        <th><%= Spree.t(:author) %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -20,7 +22,7 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr class="<%= cycle('odd', 'even') %>">
-          <td><%= post.title %>
+          <td><%= post.title %></td>
           <td>
             <% if post.published? %>
               <span class="badge badge-considered_safe">
@@ -31,6 +33,9 @@
                 <%= Spree.t(:draft) %>
               </span>
             <% end %>
+          </td>
+          <td>
+            <%= post.author_display_name if post.author_display_name.present? %>
           </td>
           <td class="actions text-right no-wrap">
             <% if post.blog.present? && !post.blog.stores.empty? %>
@@ -62,6 +67,7 @@
       <% end %>
     </tbody>
   </table>
+</div>
 
   <%= render 'spree/admin/shared/index_table_options', collection: @posts, simple: true %>
 
