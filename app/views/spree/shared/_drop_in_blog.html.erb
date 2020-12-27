@@ -1,0 +1,25 @@
+<% @blog = Spree::Blog.by_store(current_store).friendly.find(blog) %>
+<% @posts = @blog.posts.published_and_visible.page(1).per(post_count) %>
+
+<%= @blog.title %>
+
+<% @posts.each do |post| %>
+  <div class="row my-5">
+    <% if post.post_image.present? %>
+      <div class="post-img col-4" style="--aspect-ratio:<%= SpreeBlogs::Config.image_ratio %>;">
+        <%= image_tag(main_app.url_for(post.post_image.attachment),
+                      options = { class:'lazyload',
+                                  alt: post.post_image.alt,
+                                  data: { src: main_app.url_for(post.post_image.attachment),
+                                          srcset: main_app.url_for(post.post_image.attachment) }
+                                }) %>
+      </div>
+    <% end %>
+
+      <div class="col-8">
+        <h2><%= link_to post.title, blog_post_path(@blog, post) %></h2>
+        <%= post.excerpt %>
+        <p><%= link_to Spree.t('read_more'), blog_post_path(@blog, post) %></p>
+      </div>
+  </div>
+<% end %>

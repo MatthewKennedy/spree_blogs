@@ -20,7 +20,7 @@ class Spree::BlogsController < Spree::StoreController
 
     @tag = MakeTaggable::Tag.friendly.find(params[:tag])
 
-    fresh_when @posts = @blog.posts.visible.by_tag(@tag).page(@pagination_page).per(@pagination_per_page)
+    fresh_when @posts = @blog.posts.published_and_visible.by_tag(@tag).page(@pagination_page).per(@pagination_per_page)
 
     @title = "#{@blog.title} | #{@tag.to_s.titlecase}"
   end
