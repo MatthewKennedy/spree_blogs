@@ -8,6 +8,7 @@
 <% end %>
 
 <% if @blogs.any? %>
+<div class="table-responsive">
   <table class="index table">
     <thead>
       <tr>
@@ -50,7 +51,7 @@
       <% end %>
     </tbody>
   </table>
-
+</div>
   <%= render 'spree/admin/shared/index_table_options', collection: @blogs, simple: true %>
 
 <% else %>
