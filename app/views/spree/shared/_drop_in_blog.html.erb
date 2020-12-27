@@ -11,7 +11,7 @@
   <div class="row">
     <% @posts.each do |post| %>
       <div class="col-12 col-md-6 col-lg my-3">
-        
+
         <% if post.post_image.present? %>
           <div class="post-img" style="--aspect-ratio:<%= SpreeBlogs::Config.image_ratio %>;">
             <%= image_tag(main_app.url_for(post.post_image.attachment),

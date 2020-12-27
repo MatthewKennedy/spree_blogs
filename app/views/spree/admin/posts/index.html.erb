@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to(Spree.t(:manage_blogs), admin_blogs_path, class: 'btn-outline-secondary') %>
+  <%#= button_link_to(Spree.t(:manage_blogs), admin_blogs_path, class: 'btn-outline-secondary') %>
   <%= button_link_to(Spree.t(:new_post), new_object_url, icon: 'add.svg', class: 'btn-success') %>
 <% end %>
 
@@ -12,7 +12,7 @@
     <thead>
       <tr>
         <th class="title"><%= Spree.t(:title) %></th>
-        <th><%= Spree.t(:status) %></th>
+        <th><%= Spree.t(:published_status) %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -22,11 +22,14 @@
         <tr class="<%= cycle('odd', 'even') %>">
           <td><%= post.title %>
           <td>
-            <% if post.visible %>
-              <%= Spree.t(:published) %>
+            <% if post.published? %>
+              <span class="badge badge-considered_safe">
+                 <%= post.blog.title %>
+              </span>
             <% else %>
               <%= Spree.t(:draft) %>
             <% end %>
+
           </td>
           <td class="actions text-right no-wrap">
             <% if post.blog.present? && !post.blog.stores.empty? %>

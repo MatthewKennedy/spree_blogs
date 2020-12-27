@@ -7,7 +7,7 @@ class Spree::PostsController < Spree::StoreController
     @post = if try_spree_current_user.try(:has_spree_role?, "admin")
       @blog.posts.find(params[:id])
     else
-      @blog.posts.visible.find(params[:id])
+      @blog.posts.published_and_visible.find(params[:id])
     end
 
     @title = @post.post_seo_title

@@ -65,6 +65,10 @@ class Spree::Post < Spree::Base
     tagged_with(tag_name, on: :tags)
   end
 
+  def published?
+    published_at <= Date.today && visible == true && blog.present?
+  end
+
   private
 
   def create_slug
