@@ -44,6 +44,7 @@ en:
     blog_posts: Blog Posts
     content: Content
     excerpt: Excerpt
+    excerpt_place_holder: Add a summary of your post to be displayed in the blog listings.
     editing: Editing
     featured_image: Featured Image
     manage_blogs: Manage Blogs

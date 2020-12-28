@@ -32,7 +32,7 @@
           <%= form.field_container :content do %>
             <div class="form-group">
               <%= form.label :content, Spree.t(:content) %> <span class="text-danger">*</span>
-              <%= form.text_area :content, { rows: 10, class: 'form-control', id: 'post_content', required: true } %>
+              <%= form.text_area :content, { rows: 16, class: 'form-control', id: 'post_content', required: true } %>
               <%= form.error_message_on :content %>
             </div>
           <% end %>
@@ -45,7 +45,7 @@
         <%= form.field_container :excerpt do %>
           <div class="form-group">
             <%= form.label :excerpt, Spree.t(:excerpt) %> <span class="text-danger">*</span>
-            <%= form.text_area :excerpt, { rows: 4, class: 'form-control', id: 'post_summary', required: true } %>
+            <%= form.text_area :excerpt, { rows: 2, class: 'form-control', id: 'post_summary', required: true, placeholder: Spree.t(:excerpt_place_holder) } %>
             <%= form.error_message_on :excerpt %>
           </div>
         <% end %>
@@ -67,7 +67,6 @@
 
     <div class="row">
       <div class="col-12">
-
         <%= form.field_container :meta_title do %>
         <div class="form-group">
           <%= form.label :meta_title, Spree.t(:meta_title) %>
