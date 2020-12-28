@@ -23,13 +23,13 @@ Move your existing Shopify blogs over to Spree bringing all your blog posts and 
 
 2. Install the gems using Bundler
 
-    ```ruby
+    ```shell
     bundle install
     ```
 
 3. Copy & run migration.
 
-    ```ruby
+    ```shell
     bundle exec rails g spree_blogs:install
     ```
 
