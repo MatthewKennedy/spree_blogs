@@ -41,7 +41,7 @@
   </div>
 </div>
 
-<% unless @post.visible? %>
+<% unless @post.published? %>
   <div class="fixed-bottom text-center">
     <div class="row">
       <div id="draftNotice" class="col-12 d-flex w-100 p-4 justify-content-center align-items-center bg-dark">
