@@ -8,10 +8,10 @@ module SpreeBlogs
   end
 
   module VERSION
-    MAJOR = 0
+    MAJOR = 1
     MINOR = 0
     TINY = 2
-    PRE = "beta".freeze
+    PRE = nil
 
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join(".")
   end
