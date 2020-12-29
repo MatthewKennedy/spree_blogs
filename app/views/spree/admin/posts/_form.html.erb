@@ -128,12 +128,13 @@
         <%= form.field_container :tag_list do %>
           <div class="form-group">
             <%= form.label :tag_list, Spree.t(:tag_list) %>
-            <%= form.text_field :tag_list, value: @post.tag_list.join(', ') %>
+            <%= form.select(:tag_list, @post.tag_list  {|p| [p.name, p.id ]}, { }, { multiple: true }) %>
           </div>
         <% end %>
 
         <script>
-          $("#post_tag_list").select2({tags: <%= Spree::Post.tag_counts_on(:tags).map{|t| t.name }.to_json.html_safe %> });
+          // Select2 v4
+          $("#post_tag_list").select2({ tags: true })
         </script>
       </div>
     </div>
