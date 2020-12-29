@@ -128,13 +128,13 @@
         <%= form.field_container :tag_list do %>
           <div class="form-group">
             <%= form.label :tag_list, Spree.t(:tag_list) %>
-            <%= form.select(:tag_list, @post.tag_list  {|p| [p.name, p.id ]}, { }, { multiple: true }) %>
+            <%= form.select(:tag_list, Spree::Post.tag_counts_on(:tags) {|p| [p.name, p.id ]}, { }, { multiple: true }) %>
           </div>
         <% end %>
 
         <script>
           // Select2 v4
-          $("#post_tag_list").select2({ tags: true })
+          $("#post_tag_list").select2({ tags: true });
         </script>
       </div>
     </div>
