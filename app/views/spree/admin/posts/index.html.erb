@@ -7,6 +7,36 @@
   <%= button_link_to(Spree.t(:new_post), new_object_url, icon: 'add.svg', class: 'btn-success') %>
 <% end %>
 
+<% content_for :table_filter do %>
+  <div data-hook="admin_posts_index_search">
+    <%= search_form_for [:admin, @search] do |f| %>
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= label_tag :q_title, Spree::Post.human_attribute_name(:title) %>
+            <%= f.text_field :title_cont, size: 25, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="form-group">
+            <%= label_tag :q_blog_id_in, Spree.t(:view_posts_in_blog) %>
+            <%= f.select :blog_id_in, Spree::Blog.all.pluck(:title, :id), { include_blank: true }, class: 'select2 js-filterable' %>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-actions" data-hook="admin_reviews_index_search_buttons">
+        <%= button Spree.t(:filter_results), 'search' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
 <% if @posts.any? %>
 <div class="table-responsive">
   <table class="index table">

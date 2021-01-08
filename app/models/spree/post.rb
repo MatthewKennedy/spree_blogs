@@ -1,84 +1,89 @@
 require "make_taggable"
 
-class Spree::Post < Spree::Base
-  belongs_to :blog
+module Spree
+  class Post < Spree::Base
+    belongs_to :blog
 
-  extend FriendlyId
-  friendly_id :slug, use: [:slugged, :finders]
+    self.whitelisted_ransackable_associations = [:blog]
+    self.whitelisted_ransackable_attributes = [:title]
 
-  make_taggable :tags
+    extend FriendlyId
+    friendly_id :slug, use: [:slugged, :finders]
 
-  before_save :create_slug, :set_published_at
+    make_taggable :tags
 
-  validates :title, :excerpt, presence: true
+    before_save :create_slug, :set_published_at
 
-  if SpreeBlogs::Config[:use_action_text]
-    has_rich_text :action_text_content
-    validates :action_text_content, presence: true
-  else
-    validates :content, presence: true
-  end
+    validates :title, :excerpt, presence: true
 
-  default_scope { order("published_at DESC") }
-
-  scope :visible, -> { where visible: true }
-  scope :published_and_visible, -> { visible.where "published_at <= ?", Date.today }
-  scope :recent, ->(max = 5) { visible.limit(max) }
-
-  if Spree.user_class
-    belongs_to :author, class_name: Spree.user_class.to_s, optional: true
-  else
-    belongs_to :author, optional: true
-  end
-
-  has_one :post_image, as: :viewable, dependent: :destroy, class_name: "Spree::PostImage"
-  accepts_nested_attributes_for :post_image, reject_if: :all_blank
-
-  def post_content
     if SpreeBlogs::Config[:use_action_text]
-      action_text_content
+      has_rich_text :action_text_content
+      validates :action_text_content, presence: true
     else
-      content
+      validates :content, presence: true
     end
-  end
 
-  def author_display_name
-    if author&.nickname.present?
-      author.nickname
-    elsif author.present?
-      author.email
+    default_scope { order("published_at DESC") }
+
+    scope :visible, -> { where visible: true }
+    scope :published_and_visible, -> { visible.where "published_at <= ?", Date.today }
+    scope :recent, ->(max = 5) { visible.limit(max) }
+
+    if Spree.user_class
+      belongs_to :author, class_name: Spree.user_class.to_s, optional: true
     else
-      false
+      belongs_to :author, optional: true
     end
-  end
 
-  def post_seo_title
-    if meta_title.present?
-      meta_title
-    else
-      title
+    has_one :post_image, as: :viewable, dependent: :destroy, class_name: "Spree::PostImage"
+    accepts_nested_attributes_for :post_image, reject_if: :all_blank
+
+    def post_content
+      if SpreeBlogs::Config[:use_action_text]
+        action_text_content
+      else
+        content
+      end
     end
-  end
 
-  def self.by_tag(tag_name)
-    tagged_with(tag_name, on: :tags)
-  end
-
-  def published?
-    published_at <= Date.today && visible == true && blog.present?
-  end
-
-  private
-
-  def create_slug
-    self.slug = if slug.blank?
-      title.to_url
-    else
-      slug.to_url
+    def author_display_name
+      if author&.nickname.present?
+        author.nickname
+      elsif author.present?
+        author.email
+      else
+        false
+      end
     end
-  end
 
-  def set_published_at
-    self.published_at = Time.now if published_at.blank?
+    def post_seo_title
+      if meta_title.present?
+        meta_title
+      else
+        title
+      end
+    end
+
+    def self.by_tag(tag_name)
+      tagged_with(tag_name, on: :tags)
+    end
+
+    def published?
+      published_at <= Date.today && visible == true && blog.present?
+    end
+
+    private
+
+    def create_slug
+      self.slug = if slug.blank?
+        title.to_url
+      else
+        slug.to_url
+      end
+    end
+
+    def set_published_at
+      self.published_at = Time.now if published_at.blank?
+    end
   end
 end
