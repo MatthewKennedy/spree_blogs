@@ -68,6 +68,7 @@ en:
     select_a_blog: Select A Blog
     seo: SEO
     slug: Slug
+    static_content: Static Content
     tag: Tag
     tag_list: Tags
     tagged: Tagged

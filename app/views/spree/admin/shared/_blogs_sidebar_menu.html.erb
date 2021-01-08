@@ -1,5 +1,9 @@
 <% if can? :admin, Spree::Blog %>
    <ul class="nav nav-sidebar border-bottom" id="sidebarBlog">
-     <%= main_menu_tree Spree.t(:blogs), icon: "blogs.svg", sub_menu: "blogs", url: "#sidebar-blogs" %>
+    <% if defined?(SpreePages) %>
+      <%= main_menu_tree Spree.t(:static_content), icon: "pages.svg", sub_menu: "blogs", url: "#sidebar-blogs" %>
+    <% else %>
+      <%= main_menu_tree Spree.t(:blogs), icon: "blogs.svg", sub_menu: "blogs", url: "#sidebar-blogs" %>
+    <% end %>
    </ul>
  <% end %>

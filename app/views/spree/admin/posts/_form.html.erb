@@ -127,8 +127,8 @@
       <div class="col-12">
         <%= form.field_container :tag_list do %>
           <div class="form-group">
-            <%= form.label :tag_list, Spree.t(:tag_list) %>
-            <%= form.select(:tag_list, Spree::Post.tag_counts_on(:tags) {|p| [p.name, p.id ]}, { }, { multiple: true }) %>
+            <%= form.label :tag_list, Spree.t(:tags) %>
+            <%= form.select(:tag_list, Spree::Post.tags_on(:tags) {|p| [p.name, p.id ]}, { }, { multiple: true }) %>
           </div>
         <% end %>
 

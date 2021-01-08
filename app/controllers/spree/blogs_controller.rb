@@ -16,7 +16,7 @@ class Spree::BlogsController < Spree::StoreController
   end
 
   def tag
-    @blog = Spree::Blog.friendly.find(params[:blog_id])
+    @blog = Spree::Blog.by_store(current_store).friendly.find(params[:blog_id])
 
     @tag = MakeTaggable::Tag.friendly.find(params[:tag])
 

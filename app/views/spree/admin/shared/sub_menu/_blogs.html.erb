@@ -3,4 +3,7 @@
     data-hook="admin_blog_sub_tabs">
   <%= tab :blogs %>
   <%= tab :posts %>
+  <% if defined?(SpreePages) %>
+    <%= tab :pages %>
+  <% end %>
 </ul>
