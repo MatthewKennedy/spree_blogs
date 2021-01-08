@@ -10,16 +10,17 @@
 <% content_for :table_filter do %>
   <div data-hook="admin_posts_index_search">
     <%= search_form_for [:admin, @search] do |f| %>
+    <%- locals = {f: f} %>
       <div class="row">
 
         <div class="col-md-6">
           <div class="form-group">
             <%= label_tag :q_title, Spree::Post.human_attribute_name(:title) %>
-            <%= f.text_field :title_cont, size: 25, class: 'form-control' %>
+            <%= f.text_field :title_cont, size: 25, class: 'form-control js-quick-search-target js-filterable' %>
           </div>
         </div>
 
-        <div class="col-12 col-lg-4">
+        <div class="col-6">
           <div class="form-group">
             <%= label_tag :q_blog_id_in, Spree.t(:view_posts_in_blog) %>
             <%= f.select :blog_id_in, Spree::Blog.all.pluck(:title, :id), { include_blank: true }, class: 'select2 js-filterable' %>
@@ -33,9 +34,6 @@
     <% end %>
   </div>
 <% end %>
-
-
-
 
 <% if @posts.any? %>
 <div class="table-responsive">

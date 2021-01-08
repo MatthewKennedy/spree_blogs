@@ -4,8 +4,8 @@ module Spree
   class Post < Spree::Base
     belongs_to :blog
 
-    self.whitelisted_ransackable_associations = [:blog]
-    self.whitelisted_ransackable_attributes = [:title]
+    self.whitelisted_ransackable_associations = %w[blog]
+    self.whitelisted_ransackable_attributes = %w[title]
 
     extend FriendlyId
     friendly_id :slug, use: [:slugged, :finders]
