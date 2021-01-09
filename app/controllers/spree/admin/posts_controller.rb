@@ -4,7 +4,7 @@ module Spree
   module Admin
     class PostsController < Spree::Admin::ResourceController
       def index
-        @posts = collection
+        respond_with(@collection)
       end
 
       private
@@ -17,11 +17,8 @@ module Spree
         return @collection if @collection.present?
 
         params[:q] ||= {}
-        params[:q][:s] ||= 'title asc'
-
         @collection = super
 
-        # @search = Spree::Post.ransack(params[:q])
         @search = @collection.ransack(params[:q])
         @collection = @search.result.includes([:blog]).page(params[:page]).per(params[:per_page])
       end

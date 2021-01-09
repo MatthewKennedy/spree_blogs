@@ -27,7 +27,7 @@ module Spree
 
     scope :visible, -> { where visible: true }
     scope :published_and_visible, -> { visible.where "published_at <= ?", Date.today }
-    scope :recent, ->(max = 5) { visible.limit(max) }
+    scope :recent, ->(max = 5) { published_and_visible.limit(max) }
 
     if Spree.user_class
       belongs_to :author, class_name: Spree.user_class.to_s, optional: true
