@@ -69,7 +69,7 @@ module Spree
       tagged_with(tag_name, on: :tags)
     end
 
-    def published?
+    def live?
       published_at <= DateTime.now && visible == true && blog.present?
     end
 

@@ -51,7 +51,7 @@
         <tr class="<%= cycle('odd', 'even') %>">
           <td><%= post.title %></td>
           <td>
-            <% if post.published? %>
+            <% if post.live? %>
               <span class="badge badge-considered_safe">
                  <%= post.blog.title %>
               </span>
