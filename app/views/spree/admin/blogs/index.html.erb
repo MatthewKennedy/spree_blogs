@@ -7,7 +7,7 @@
 <% end %>
 
 <% if @blogs.any? %>
-<div class="table-responsive">
+<div class="table-responsive" style="overflow-x: visible;">
   <table class="index table">
     <thead>
       <tr>
@@ -20,31 +20,33 @@
       <% @blogs.each do |blog| %>
         <tr class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id blog %>">
           <td><%= blog.title %></td>
-          <td class="actions text-right no-wrap">
-            <% unless blog.stores.empty? %>
-              <div class="dropdown d-inline-block">
-                <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton-<%= blog.slug %>"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false">
+          <td class="actions">
+            <span class="d-flex justify-content-end">
+              <% unless blog.stores.empty? %>
+                <div class="dropdown d-inline-block">
+                  <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                          type="button"
+                          id="dropdownMenuButton-<%= blog.slug %>"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false">
 
-                  <%= svg_icon name: "view.svg", width: '16', height: '16' %>
-                </button>
-                <div class="dropdown-menu mt-2 p-0 mr-2 dropdown-menu-right" aria-labelledby="dropdownMenuButton-<%= blog.slug %>">
-                  <div class="dropdown-item px-0 py-2 text-center bg-light">
-                    <%= I18n.t('spree_blogs.admin.view_blog_in_store') %>
+                    <%= svg_icon name: "view.svg", width: '16', height: '16' %>
+                  </button>
+                  <div class="dropdown-menu mt-2 p-0 mr-2 dropdown-menu-right" aria-labelledby="dropdownMenuButton-<%= blog.slug %>">
+                    <div class="dropdown-item px-0 py-2 text-center bg-light">
+                      <%= I18n.t('spree_blogs.admin.view_blog_in_store') %>
+                    </div>
+                    <div class="dropdown-divider m-0"></div>
+                    <% blog.stores.each do |store| %>
+                      <%= view_blog_in_store_link(blog, store) %>
+                    <% end %>
                   </div>
-                  <div class="dropdown-divider m-0"></div>
-                  <% blog.stores.each do |store| %>
-                    <%= view_blog_in_store_link(blog, store) %>
-                  <% end %>
                 </div>
-              </div>
-            <% end %>
-            <%= link_to_edit(blog, no_text: true) %>
-            <%= link_to_delete(blog, no_text: true) %>
+              <% end %>
+              <%= link_to_edit(blog, no_text: true) %>
+              <%= link_to_delete(blog, no_text: true) %>
+            </span>
           </td>
         </tr>
       <% end %>
