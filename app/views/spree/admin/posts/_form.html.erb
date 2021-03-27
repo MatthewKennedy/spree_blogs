@@ -140,26 +140,28 @@
     </div>
 
     <div class="row">
-      <div class="col-8">
+      <div class="col-12">
         <%= form.field_container :published_at do %>
           <div class="form-group">
             <%= form.label :published_at, I18n.t('spree_blogs.admin.published_at') %>
             <%= form.error_message_on :published_at %>
             <div class="input-group datePickerFrom"
                  data-wrap="true"
-                 data-alt-format="<%= Spree.t('date_picker.fpr_human_friendly_date_format', default: 'M j, Y') %>">
+                 data-enable-time="true"
+                 data-alt-format="<%= Spree.t(:fpr_human_friendly_date_time_format, scope: 'date_picker', default: 'M j, Y H:i') %>">
 
-            <%= form.text_field :published_at, value: datepicker_field_value(@post.published_at),
-                                placeholder: I18n.t('spree_blogs.admin.select_a_date'),
-                                class: 'form-control shadow-none ',
-                                  'data-input':'' %>
-                                <%= render partial: 'spree/admin/shared/cal_close' %>
+            <%= form.datetime_field :published_at,
+                                    placeholder: I18n.t('spree_blogs.admin.select_a_date'),
+                                    class: 'form-control shadow-none ',
+                                    'data-input':'' %>
+
+            <%= render partial: 'spree/admin/shared/cal_close' %>
             </div>
           </div>
         <% end %>
       </div>
 
-      <div class="col-4">
+      <div class="col-12">
         <br>
         <%= form.field_container :visible do %>
           <div class="custom-control custom-checkbox">

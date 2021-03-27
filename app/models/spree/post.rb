@@ -26,7 +26,8 @@ module Spree
     default_scope { order("published_at DESC") }
 
     scope :visible, -> { where visible: true }
-    scope :published_and_visible, -> { visible.where "published_at <= ?", Date.today }
+    scope :published_and_visible, -> { visible.where "published_at <= ?", DateTime.now }
+
     scope :recent, ->(max = 5) { published_and_visible.limit(max) }
 
     if Spree.user_class
@@ -69,7 +70,7 @@ module Spree
     end
 
     def published?
-      published_at <= Date.today && visible == true && blog.present?
+      published_at <= DateTime.now && visible == true && blog.present?
     end
 
     private
@@ -83,7 +84,7 @@ module Spree
     end
 
     def set_published_at
-      self.published_at = Time.now if published_at.blank?
+      self.published_at = DateTime.now if published_at.blank?
     end
   end
 end
