@@ -1,10 +1,9 @@
 <% content_for :page_title do %>
-   <%= Spree.t(:posts) %>
+   <%= I18n.t('spree_blogs.admin.posts') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%#= button_link_to(Spree.t(:manage_blogs), admin_blogs_path, class: 'btn-outline-secondary') %>
-  <%= button_link_to(Spree.t(:new_post), new_object_url, icon: 'add.svg', class: 'btn-success') %>
+  <%= button_link_to(I18n.t('spree_blogs.admin.new_post'), new_object_url, icon: 'add.svg', class: 'btn-success') %>
 <% end %>
 
 <% content_for :table_filter do %>
@@ -22,14 +21,14 @@
 
         <div class="col-6">
           <div class="form-group">
-            <%= label_tag :q_blog_id_in, Spree.t(:view_posts_in_blog) %>
+            <%= label_tag :q_blog_id_in, I18n.t('spree_blogs.admin.view_posts_in_blog') %>
             <%= f.select :blog_id_in, Spree::Blog.all.pluck(:title, :id), { include_blank: true }, class: 'select2 js-filterable' %>
           </div>
         </div>
 
       </div>
       <div class="form-actions" data-hook="admin_reviews_index_search_buttons">
-        <%= button Spree.t(:filter_results), 'search' %>
+        <%= button I18n.t('spree_blogs.admin.filter_results'), 'search' %>
       </div>
     <% end %>
   </div>
@@ -40,9 +39,9 @@
   <table class="index table">
     <thead>
       <tr>
-        <th class="title"><%= Spree.t(:title) %></th>
-        <th><%= Spree.t(:published_status) %></th>
-        <th><%= Spree.t(:author) %></th>
+        <th class="title"><%= I18n.t('spree_blogs.admin.title') %></th>
+        <th><%= I18n.t('spree_blogs.admin.published_status') %></th>
+        <th><%= I18n.t('spree_blogs.admin.author') %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -58,7 +57,7 @@
               </span>
             <% else %>
               <span class="badge badge-pending">
-                <%= Spree.t(:draft) %>
+                <%= I18n.t('spree_blogs.admin.draft') %>
               </span>
             <% end %>
           </td>
@@ -79,7 +78,7 @@
                 </button>
                 <div class="dropdown-menu mt-2 p-0 mr-2 dropdown-menu-right" aria-labelledby="dropdownMenuButton-<%= post.blog.slug %>">
                   <div class="dropdown-item px-0 py-2 text-center bg-light">
-                    <%= Spree.t('view_post_in_store') %>
+                    <%= I18n.t('spree_blogs.admin.view_post_in_store') %>
                   </div>
                   <div class="dropdown-divider m-0"></div>
                   <% post.blog.stores.each do |store| %>
@@ -101,7 +100,7 @@
 
 <% else %>
   <div class="no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/post')) %>,
-    <%= link_to(Spree.t(:add_one), spree.new_admin_post_path) %>!
+    <%= I18n.t('spree_blogs.admin.no_resource_found' resource: I18n.t(:other, scope: 'activerecord.models.spree/post')) %>,
+    <%= link_to(I18n.t('spree_blogs.admin.add_one'), spree.new_admin_post_path) %>!
   </div>
 <% end %>

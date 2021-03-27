@@ -22,12 +22,14 @@
       <h1><%= @post.title %></h1>
 
       <p class="small">
-        <span class="text-muted"><%= Spree.t('posted_on') %></span>
+        <span class="text-muted"><%= I18n.t('spree_blogs.frontend.posted_on') %></span>
+
+        <%# i18n-tasks-use t('time.formats.blog_date') %>
         <%= localize(@post.published_at, format: :blog_date) %>
-        <span class="text-muted">| <%= Spree.t('posted_in') %></span>
+        <span class="text-muted">| <%= I18n.t('spree_blogs.frontend.posted_in') %></span>
         <%= @post.blog.title %>
         <% if @post.author_display_name %>
-          <span class="text-muted">| <%= Spree.t('posted_by') %></span>
+          <span class="text-muted">| <%= I18n.t('spree_blogs.frontend.posted_by') %></span>
           <%= @post.author_display_name %>
         <% end %>
       </p>

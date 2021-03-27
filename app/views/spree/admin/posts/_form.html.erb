@@ -3,10 +3,10 @@
 
     <div class="row">
       <div class="col-12">
-        <h5><%= Spree.t(:post_details) %></h5>
+        <h5><%= I18n.t('spree_blogs.admin.post_details') %></h5>
         <%= form.field_container :title do %>
         <div class="form-group">
-          <%= form.label :title, Spree.t(:title) %> <span class="text-danger">*</span>
+          <%= form.label :title, I18n.t('spree_blogs.admin.title') %> <span class="text-danger">*</span>
           <%= form.text_field :title, class: 'form-control', required: true %>
           <%= form.error_message_on :title %>
         </div>
@@ -19,7 +19,7 @@
         <div class="col-12">
           <%= form.field_container :action_text_content do %>
             <div class="form-group">
-              <%= form.label :action_text_content, Spree.t(:content) %> <span class="text-danger">*</span>
+              <%= form.label :action_text_content, I18n.t('spree_blogs.admin.content') %> <span class="text-danger">*</span>
               <%= form.rich_text_area :action_text_content, {id: 'post_body', required: true } %>
               <%= form.error_message_on :action_text_content %>
             </div>
@@ -31,7 +31,7 @@
         <div class="col-12">
           <%= form.field_container :content do %>
             <div class="form-group">
-              <%= form.label :content, Spree.t(:content) %> <span class="text-danger">*</span>
+              <%= form.label :content, I18n.t('spree_blogs.admin.content') %> <span class="text-danger">*</span>
               <%= form.text_area :content, { rows: 16, class: 'form-control', id: 'post_content', required: true } %>
               <%= form.error_message_on :content %>
             </div>
@@ -44,8 +44,8 @@
       <div class="col-12">
         <%= form.field_container :excerpt do %>
           <div class="form-group">
-            <%= form.label :excerpt, Spree.t(:excerpt) %> <span class="text-danger">*</span>
-            <%= form.text_area :excerpt, { rows: 2, class: 'form-control', id: 'post_summary', required: true, placeholder: Spree.t(:excerpt_place_holder) } %>
+            <%= form.label :excerpt, I18n.t('spree_blogs.admin.excerpt') %> <span class="text-danger">*</span>
+            <%= form.text_area :excerpt, { rows: 2, class: 'form-control', id: 'post_summary', required: true, placeholder: I18n.t('spree_blogs.admin.excerpt_place_holder') } %>
             <%= form.error_message_on :excerpt %>
           </div>
         <% end %>
@@ -54,10 +54,10 @@
 
     <div class="row">
       <div class="col-12">
-        <h5 class="card-title"><%= Spree.t(:seo) %></h5>
+        <h5 class="card-title"><%= I18n.t('spree_blogs.admin.seo') %></h5>
         <%= form.field_container :slug do %>
           <div class="form-group">
-            <%= form.label :slug, Spree.t(:slug) %>
+            <%= form.label :slug, I18n.t('spree_blogs.admin.slug') %>
             <%= form.text_field :slug, class: 'form-control', id: 'slug', onfocusout: 'validateSlug()' %>
             <%= form.error_message_on :slug %>
           </div>
@@ -69,7 +69,7 @@
       <div class="col-12">
         <%= form.field_container :meta_title do %>
         <div class="form-group">
-          <%= form.label :meta_title, Spree.t(:meta_title) %>
+          <%= form.label :meta_title, I18n.t('spree_blogs.admin.meta_title') %>
           <%= form.text_field :meta_title, class: 'form-control' %>
           <%= form.error_message_on :meta_title %>
         </div>
@@ -81,7 +81,7 @@
       <div class="col-12">
         <%= form.field_container :meta_description do %>
           <div class="form-group">
-            <%= form.label :meta_description, Spree.t(:meta_description) %>
+            <%= form.label :meta_description, I18n.t('spree_blogs.admin.meta_description') %>
             <%= form.text_area :meta_description, { rows: 4, class: 'form-control', id: 'post_meta_description' } %>
             <%= form.error_message_on :meta_description %>
           </div>
@@ -93,7 +93,7 @@
   <div class="col-12 col-md-4">
     <div class="row">
       <div class="col-12 ">
-          <h5><%= Spree.t(:featured_image) %></h5>
+          <h5><%= I18n.t('spree_blogs.admin.featured_image') %></h5>
           <% @post.build_post_image unless @post.post_image %>
             <%= form.fields_for :post_image do |post_image_field| %>
 
@@ -115,7 +115,7 @@
 
             <%= form.field_container :post_image_alt do %>
               <div class="form-group my-3">
-                <%= post_image_field.label :alt, Spree.t(:alt_text) %>
+                <%= post_image_field.label :alt, I18n.t('spree_blogs.admin.alt_text') %>
                 <%= post_image_field.text_field :alt, class: 'form-control' %>
               </div>
             <% end %>
@@ -127,7 +127,7 @@
       <div class="col-12">
         <%= form.field_container :tag_list do %>
           <div class="form-group">
-            <%= form.label :tag_list, Spree.t(:tags) %>
+            <%= form.label :tag_list, I18n.t('spree_blogs.admin.tags') %>
             <%= form.select(:tag_list, Spree::Post.tags_on(:tags) {|p| [p.name, p.id ]}, { }, { multiple: true }) %>
           </div>
         <% end %>
@@ -143,18 +143,16 @@
       <div class="col-8">
         <%= form.field_container :published_at do %>
           <div class="form-group">
-            <%= form.label :published_at, Spree.t(:published_at) %>
+            <%= form.label :published_at, I18n.t('spree_blogs.admin.published_at') %>
             <%= form.error_message_on :published_at %>
-            <div class="input-group datePickerFrom" data-wrap="true">
-            <% if @post.published_at? %>
+            <div class="input-group datePickerFrom"
+                 data-wrap="true"
+                 data-alt-format="<%= Spree.t('date_picker.fpr_human_friendly_date_format', default: 'M j, Y') %>">
 
-              <% published_at = localize(@post.published_at, format: Spree.t('date_picker.format')) %>
-            <% else %>
-              <% published_at = nil %>
-            <% end %>
-            <%= form.text_field :published_at, value: published_at,
+            <%= form.text_field :published_at, value: datepicker_field_value(@post.published_at),
                                 placeholder: Spree.t(:select_a_date),
-                                class: 'form-control shadow-none ','data-input':'' %>
+                                class: 'form-control shadow-none ',
+                                  'data-input':'' %>
                                 <%= render partial: 'spree/admin/shared/cal_close' %>
             </div>
           </div>
@@ -166,7 +164,7 @@
         <%= form.field_container :visible do %>
           <div class="custom-control custom-checkbox">
             <%= form.check_box :visible, class: 'custom-control-input' %>
-            <%= form.label :visible, Spree.t(:visible), class: 'custom-control-label' %>
+            <%= form.label :visible, I18n.t('spree_blogs.admin.visible'), class: 'custom-control-label' %>
             <%= form.error_message_on :visible %>
           </div>
         <% end %>
@@ -176,7 +174,7 @@
     <div class="row">
       <div class="col-12">
         <%= form.field_container :blog_id, class: ['form-group'] do %>
-          <%= form.label :blog_id, Spree.t(:blog) %>
+          <%= form.label :blog_id, I18n.t('spree_blogs.admin.blog') %>
           <%= form.collection_select(:blog_id, Spree::Blog.all, :id, :title, { include_blank: false }, { class: "select2" }) %>
           <%= form.error_message_on :blog_id %>
         <% end %>
@@ -186,7 +184,7 @@
     <div class="row">
       <div class="col-12">
         <%= form.field_container :author_id do %>
-          <%= form.label :author_id, Spree.t(:author_id) %>
+          <%= form.label :author_id, I18n.t('spree_blogs.admin.author_id') %>
           <br>
           <%= form.select :author_id,
                           Spree.user_class.joins(:spree_roles).where("#{Spree::Role.table_name}.name" => "blogger").collect {|user| [user.email, user.id]},

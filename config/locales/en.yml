@@ -3,18 +3,18 @@ en:
   activerecord:
     attributes:
       spree/blog:
-        meta_title: Meta Title
         meta_description: Meta Description
-        title: Title
+        meta_title: Meta Title
         slug: Slug
+        title: Title
       spree/post:
         author_id: Author
         body: Body
         content: Content
         excerpt: Excerpt
-        published_at: Published at
-        meta_title: Meta Title
         meta_description: Meta Description
+        meta_title: Meta Title
+        published_at: Published at
         slug: Slug
         title: Title
         visible: Visible
@@ -28,55 +28,59 @@ en:
         one: Post
         other: Posts
   spree:
-    admin:
-      tab:
-        blog_posts: Blog posts
     ago: ago
-    alt_text: Image Alt Text
-    author_id: Author
-    author: Author
-    back_to_blogs_list: Back To Blogs
-    back_to_posts: Back To Posts
-    back_to_posts_list: Back To Posts
-    blog: Blog
-    blogs: Blogs
-    blog_details: Blog Details
-    blog_posts: Blog Posts
-    content: Content
-    excerpt: Excerpt
-    excerpt_place_holder: Add a summary of your post to be displayed in the blog listings.
-    editing: Editing
-    featured_image: Featured Image
-    manage_blogs: Manage Blogs
-    meta_description: Meta Description (SEO)
-    meta_title: Meta Title (SEO)
-    new_blog: New Blog
-    new_post: New Post
-    nickname: Nickname
-    no_blog_posts: No blog posts found.
-    post: Post
-    posts: Posts
-    post_details: Post Details
+    home: Home
     posted_by: Posted by
     posted_in: Posted in
     posted_on: Posted on
-    published: Published
-    published_at: Published at
-    published_status: Published Status
     read_more: Read More
     recent_posts: Recent Posts
-    select_a_blog: Select A Blog
-    seo: SEO
-    slug: Slug
-    static_content: Static Content
-    tag: Tag
+    select_a_date: Select a date
     tag_list: Tags
-    tagged: Tagged
-    title: Title
     viewing_post_in_draft_mode: You are viewing this post in draft mode.
-    visible: Visible
-    view_blog_in_store: View Blog In Store
-    view_post_in_store: View Post In Store
+  spree_blogs:
+    admin:
+      add_one: Add one
+      alt_text: Image Alt Text
+      author: Author
+      author_id: Author
+      back_to_blogs_list: Back to blogs list
+      back_to_posts_list: Back To Posts
+      blog: Blog
+      blog_details: Blog Details
+      blogs: Blogs
+      content: Content
+      draft: Draft
+      edit_blog: Edit blog
+      editing: Editing
+      excerpt: Excerpt
+      excerpt_place_holder: Add a summary of your post to be displayed in the blog listings.
+      featured_image: Featured image
+      filter_results: Filter results
+      meta_description: Meta Description (SEO)
+      meta_title: Meta Title (SEO)
+      new_blog: New blog
+      new_post: New Post
+      nickname: Nickname
+      no_resource_found: No %{resource} found
+      post_details: Post details
+      posts: Posts
+      published_at: Published at
+      published_status: Published status
+      seo: SEO
+      slug: Slug
+      static_content: Static Content
+      tags: Tags
+      title: Title
+      view_blog_in_store: View blog in store
+      view_post_in_store: View post in store
+      view_posts_in_blog: View posts in blog
+      visible: Visible
+    frontend:
+      posted_by: Posted by
+      posted_in: Posted in
+      posted_on: Posted on
+      read_more: Read more
   time:
     formats:
       blog_date: "%e %b %Y"

@@ -1,9 +1,9 @@
 <% content_for :page_title do %>
-  <%= Spree.t(:new_blog) %>
+  <%= I18n.t('spree_blogs.admin.new_blog') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t(:back_to_blogs_list), spree.admin_blogs_url, icon: 'arrow-left.svg' %>
+  <%= button_link_to I18n.t('spree_blogs.admin.back_to_blogs_list'), spree.admin_blogs_url, icon: 'arrow-left.svg' %>
 <% end %>
 
 <%= render "spree/shared/error_messages", target: @blog %>

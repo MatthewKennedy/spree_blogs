@@ -1,6 +1,6 @@
 <div class="col-md-6">
   <%= f.field_container :nickname, class: ['form-group'] do %>
-    <%= f.label :nickname, Spree.t(:nickname) %>
+    <%= f.label :nickname, I18n.t('spree_blogs.admin.nickname') %>
     <%= f.text_field :nickname, class: 'form-control' %>
     <%= error_message_on :user, :nickname %>
   <% end %>

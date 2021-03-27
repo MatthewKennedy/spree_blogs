@@ -29,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_dependency "deface"
 
   s.add_development_dependency "spree_dev_tools"
+  s.add_development_dependency "i18n-tasks"
 end

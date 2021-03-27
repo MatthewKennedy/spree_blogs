@@ -1,10 +1,9 @@
 <% content_for :page_title do %>
-  <%= Spree.t(:blogs) %>
+  <%= I18n.t('spree_blogs.admin.blogs') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%#= button_link_to(Spree.t(:back_to_posts), admin_posts_path, icon: 'arrow-left.svg', class: 'btn-outline-secondary') %>
-  <%= button_link_to(Spree.t(:new_blog), new_object_url, icon: 'add.svg', class: 'btn-success') %>
+  <%= button_link_to(I18n.t('spree_blogs.admin.new_blog'), new_object_url, icon: 'add.svg', class: 'btn-success') %>
 <% end %>
 
 <% if @blogs.any? %>
@@ -12,7 +11,7 @@
   <table class="index table">
     <thead>
       <tr>
-        <th class="title"><%= Spree.t(:title) %></th>
+        <th class="title"><%= I18n.t('spree_blogs.admin.title') %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -35,7 +34,7 @@
                 </button>
                 <div class="dropdown-menu mt-2 p-0 mr-2 dropdown-menu-right" aria-labelledby="dropdownMenuButton-<%= blog.slug %>">
                   <div class="dropdown-item px-0 py-2 text-center bg-light">
-                    <%= Spree.t('view_blog_in_store') %>
+                    <%= I18n.t('spree_blogs.admin.view_blog_in_store') %>
                   </div>
                   <div class="dropdown-divider m-0"></div>
                   <% blog.stores.each do |store| %>
@@ -56,7 +55,7 @@
 
 <% else %>
   <div class="no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/blog')) %>,
-    <%= link_to Spree.t(:add_one), spree.new_admin_blog_path %>
+    <%= I18n.t('spree_blogs.admin.no_resource_found', resource: plural_resource_name(Spree::Blog)) %>,
+    <%= link_to I18n.t('spree_blogs.admin.add_one'), spree.new_admin_blog_path %>
   </div>
 <% end %>
