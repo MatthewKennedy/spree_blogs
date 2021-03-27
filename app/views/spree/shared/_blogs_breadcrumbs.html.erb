@@ -2,7 +2,7 @@
   <ol class="breadcrumb blog-breadcrumb">
     <li class="breadcrumb-item">
       <span>
-        <%= link_to Spree.t(:home), spree.root_path %>
+        <%= link_to I18n.t('spree_blogs.frontend.home'), spree.root_path %>
       </span>
     </li>
     <% if blog.present? && tag.present? %>

@@ -1,46 +1,8 @@
 ---
 en:
-  activerecord:
-    attributes:
-      spree/blog:
-        meta_description: Meta Description
-        meta_title: Meta Title
-        slug: Slug
-        title: Title
-      spree/post:
-        author_id: Author
-        body: Body
-        content: Content
-        excerpt: Excerpt
-        meta_description: Meta Description
-        meta_title: Meta Title
-        published_at: Published at
-        slug: Slug
-        title: Title
-        visible: Visible
-      spree/user:
-        nickname: Nickname
-    models:
-      spree/blog:
-        one: Blog
-        other: Blogs
-      spree/post:
-        one: Post
-        other: Posts
-  spree:
-    ago: ago
-    home: Home
-    posted_by: Posted by
-    posted_in: Posted in
-    posted_on: Posted on
-    read_more: Read More
-    recent_posts: Recent Posts
-    select_a_date: Select a date
-    tag_list: Tags
-    viewing_post_in_draft_mode: You are viewing this post in draft mode.
   spree_blogs:
     admin:
-      add_one: Add one
+      add_one: add one
       alt_text: Image Alt Text
       author: Author
       author_id: Author
@@ -62,11 +24,13 @@ en:
       new_blog: New blog
       new_post: New Post
       nickname: Nickname
-      no_resource_found: No %{resource} found
+      no_blogs_found: No Blogs found
+      no_posts_found: No Posts found
       post_details: Post details
       posts: Posts
       published_at: Published at
       published_status: Published status
+      select_a_date: Select a date
       seo: SEO
       slug: Slug
       static_content: Static Content
@@ -77,10 +41,15 @@ en:
       view_posts_in_blog: View posts in blog
       visible: Visible
     frontend:
+      ago: ago
+      home: Home
       posted_by: Posted by
       posted_in: Posted in
       posted_on: Posted on
       read_more: Read more
+      recent_posts: Recent posts
+      tag_list: Tag list
+      viewing_post_in_draft_mode: You are viewing this post in draft mode.
   time:
     formats:
       blog_date: "%e %b %Y"

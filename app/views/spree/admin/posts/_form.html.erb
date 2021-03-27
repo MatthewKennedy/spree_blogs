@@ -150,7 +150,7 @@
                  data-alt-format="<%= Spree.t('date_picker.fpr_human_friendly_date_format', default: 'M j, Y') %>">
 
             <%= form.text_field :published_at, value: datepicker_field_value(@post.published_at),
-                                placeholder: Spree.t(:select_a_date),
+                                placeholder: I18n.t('spree_blogs.admin.select_a_date'),
                                 class: 'form-control shadow-none ',
                                   'data-input':'' %>
                                 <%= render partial: 'spree/admin/shared/cal_close' %>

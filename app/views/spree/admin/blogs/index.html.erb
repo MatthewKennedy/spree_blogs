@@ -55,7 +55,7 @@
 
 <% else %>
   <div class="no-objects-found">
-    <%= I18n.t('spree_blogs.admin.no_resource_found', resource: plural_resource_name(Spree::Blog)) %>,
+    <%= I18n.t('spree_blogs.admin.no_blogs_found') %>,
     <%= link_to I18n.t('spree_blogs.admin.add_one'), spree.new_admin_blog_path %>
   </div>
 <% end %>

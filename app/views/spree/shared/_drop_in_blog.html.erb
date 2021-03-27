@@ -28,7 +28,7 @@
             <h3 class="mb-0 mt-2"><%= link_to post.title, blog_post_path(@blog, post), class: " text-body" %></h3>
             <span class="small text-secondary"><%= localize(post.published_at, format: :blog_date) %></span>
             <p class="mt-1"><%= post.excerpt %></p>
-            <p><%= link_to Spree.t('read_more'), blog_post_path(@blog, post) %></p>
+            <p><%= link_to I18n.t('spree_blogs.frontend.read_more'), blog_post_path(@blog, post) %></p>
           </div>
         </div>
 

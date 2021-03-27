@@ -100,7 +100,7 @@
 
 <% else %>
   <div class="no-objects-found">
-    <%= I18n.t('spree_blogs.admin.no_resource_found' resource: I18n.t(:other, scope: 'activerecord.models.spree/post')) %>,
+    <%= I18n.t('spree_blogs.admin.no_posts_found') %>,
     <%= link_to(I18n.t('spree_blogs.admin.add_one'), spree.new_admin_post_path) %>!
   </div>
 <% end %>
